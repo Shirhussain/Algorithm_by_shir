@@ -12,7 +12,7 @@ def binary_search(list_array, target):
     return None
 
 
-my_list = [1,2,3,5,55,99,10,100,1000]
+my_list = [1,2,3,5,10,55,99,100,1000]
 
 def verfiy(binary_search_fn):
     if binary_search_fn is not None:
@@ -20,7 +20,7 @@ def verfiy(binary_search_fn):
     else:
         print("target not found")
 
-result = binary_search(my_list, 0)
+result = binary_search(my_list, 10)
 
 verfiy(result)
 
