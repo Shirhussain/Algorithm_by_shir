@@ -31,7 +31,7 @@ def merge(left, right):
     """
     Merge to list and sorting them in the process
     then Return the new Merged list
-    
+
     Runs in overall O(n) time.
     """
     l = []
@@ -68,6 +68,4 @@ def verify_sorted(list):
 
 print(mlist)
 print(verify_sorted(mlist))
-
-
 
