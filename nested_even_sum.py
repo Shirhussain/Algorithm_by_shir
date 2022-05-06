@@ -1,4 +1,4 @@
-#This is just nested recursion
+# This is just nested recursion
 # Input: [1,2,[3]]
 # Output: 6
 
@@ -28,11 +28,11 @@
 
 
 obj = {
-    "a":2,
-    "b":{"x":2, "y":{"foo":3, "z":{"bar":2}}},
-    "c":{"p":{"h":2, "r":5}, "q":"ball", "r":5},
-    "d":1,
-    "e":{"nn":{"lil":2},"mm":"car"}}
+    "a": 2,
+    "b": {"x": 2, "y": {"foo": 3, "z": {"bar": 2}}},
+    "c": {"p": {"h": 2, "r": 5}, "q": "ball", "r": 5},
+    "d": 1,
+    "e": {"nn": {"lil": 2}, "mm": "car"}}
 
 # def recursive_sum(n):
 #     current_sum = 0
@@ -46,14 +46,25 @@ obj = {
 # res = recursive_sum(obj)
 # print(res)
 
+
+# def nestedEvenSum(obj, sum=0):
+#     for key in obj:
+#         if type(obj[key]) is dict:
+#             sum += nestedEvenSum(obj[key])
+#         elif type(obj[key]) is int and obj[key] % 2 == 0:
+#             sum += obj[key]
+#     return sum
+
+
 def nested_even_sum_recursive(obj, sum=0):
     for key in obj:
-        if isinstance(obj[key], dict):
+        if isinstance(obj[key], (dict, list)):
             sum += nested_even_sum_recursive(obj[key])
         elif not isinstance(obj[key], str):
             if obj[key] % 2 == 0:
                 sum += obj[key]
     return sum
+
 
 res = nested_even_sum_recursive(obj)
 print(res)
