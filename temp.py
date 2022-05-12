@@ -1,5 +1,3 @@
-lst = [99,80,55,65,67,67,70,72,100,100]
+my_lst = [1,2,3,4,1,1,2,2,2,3,8,6]
 
-new_list = sorted(set(lst))
-
-print(new_list[-1:-3:-1])
+print(set(my_lst))
