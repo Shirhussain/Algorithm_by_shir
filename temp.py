@@ -1,3 +1,5 @@
-my_lst = [1,2,3,4,1,1,2,2,2,3,8,6]
+init_tuple = [(0, 1), (1, 2), (2, 3)]
 
-print(set(my_lst))
+result = sum(n for _, n in init_tuple)
+
+print(result)
