@@ -57,5 +57,3 @@ sll.insertCSLL(2,2)
 
 print([node.value for node in sll])
 
-
-    

@@ -1,8 +1,8 @@
 from operator import le
 from pyparsing import empty
-import numpy as np
+# import numpy as np
 
-my_arrray = np.array([1,20,30,44,14,15,17,99,100,73,11])
+# my_arrray = np.array([1,20,30,44,14,15,17,99,100,73,11])
 # my_arrray.sort()
 # print(my_arrray)
 
@@ -15,7 +15,7 @@ my_arrray = np.array([1,20,30,44,14,15,17,99,100,73,11])
 # print(maximum_product_of_two(my_arrray))
 
 
-
+my_array = [1,20,30,44,14,15,17,99,100,73,11]
 def max_product_two(lst):
     max_product = 0
     for i in range(len(lst)):
@@ -26,4 +26,4 @@ def max_product_two(lst):
     print(pairs)
     print(max_product)
     
-max_product_two(my_arrray)
+max_product_two(my_array)
