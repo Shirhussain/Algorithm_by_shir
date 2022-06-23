@@ -1,8 +1,3 @@
-
-from hashlib import new
-from tempfile import tempdir
-
-
 class Node:
     def __init__(self, value = None):
         self.value = value
