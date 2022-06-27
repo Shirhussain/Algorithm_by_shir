@@ -51,7 +51,7 @@ class LinkedList:
         return self
     
     
-custome_link_list = LinkedList()
-custome_link_list.generate(10,0,100)
-print(custome_link_list)
-print(len(custome_link_list))
+# custome_link_list = LinkedList()
+# custome_link_list.generate(10,0,100)
+# print(custome_link_list)
+# print(len(custome_link_list))
