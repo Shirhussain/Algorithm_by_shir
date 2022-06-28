@@ -1,7 +1,6 @@
 # given two linked list, we need to determine if the two list intersect with each other
 # return the intersecting node 
 
-from audioop import add
 from linkedlist import LinkedList, Node 
 
 def intersect(llA, llB):
