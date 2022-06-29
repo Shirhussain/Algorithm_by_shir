@@ -1,0 +1,16 @@
+import queue as q
+
+custome = q.Queue(maxsize = 5)
+print(custome.empty())
+custome.put(1)
+custome.put(2)
+custome.put(3)
+print(custome.qsize())
+print(custome.empty())
+print(custome.full())
+custome.put(4)
+custome.put(5)
+print(custome.full())
+print(custome.get())
+print(custome.full())
+print(custome.qsize())
