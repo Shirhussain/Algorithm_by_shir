@@ -1,4 +1,4 @@
-
+#just do it
 class Stack:
     def __init__(self):
         self.list = []
