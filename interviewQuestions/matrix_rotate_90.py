@@ -15,8 +15,8 @@ rotate_metrix(mat)
 
 
 def display_metrix(metrix):
-    for i in range(0, len(metrix)):
-        for j in range(0, len(metrix)):
+    for i in range(len(metrix)):
+        for j in range(len(metrix)):
             print(metrix[i][j], end = " ")
         print()
 
