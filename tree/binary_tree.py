@@ -1,4 +1,4 @@
-from calendar import c
+from logging import root
 import queue_linked_list as queue
 
 class TreeNode:
@@ -164,7 +164,7 @@ print("\n ----------------------------------------------------------------")
 
 def delete_node_BT(rootNode, data_node):
     if not rootNode:
-        return 
+        return "The binary tree does not exist."
     custome_que = queue.Queue()
     custome_que.enqueue(rootNode)
     while not custome_que.isEmpty():
@@ -173,7 +173,7 @@ def delete_node_BT(rootNode, data_node):
             deepest_node = getDeepestNode(rootNode)
             root.value.data = deepest_node.data 
             deleteDeepestNode(rootNode, deepest_node)
-            return "The nood has been successfully created"
+            return "The nood has been successfully deleted"
         if root.value.leftChild is not None:
             custome_que.enqueue(root.value.leftChild)
             
@@ -185,3 +185,14 @@ def delete_node_BT(rootNode, data_node):
 delete_node_BT(new_binary_tree, "Hot")
 level_order_traversal(new_binary_tree)
 print("\n ----------------------------------------------------------------")
+
+
+
+def delete_whole_binary_tree(root_node):
+    root_node.data = None
+    root_node.leftChild = None
+    root_node.rightChild = None
+    return "The binary complitly deleted successfully"
+
+print(delete_whole_binary_tree(new_binary_tree))
+level_order_traversal(new_binary_tree)
