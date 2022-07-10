@@ -1,6 +1,3 @@
-from hashlib import new
-
-
 class Binary_tree_python_list:
     def __init__(self, size):
         self.custome_list = size * [None]
@@ -19,8 +16,21 @@ class Binary_tree_python_list:
             if self.custome_list[i] == node_value:
                 return "success"
         return "Not found"
+    
+    def pre_order_traversal(self, index):
+        if index > self.lastUsedIndex:
+            return 
+        print(self.custome_list[index])
+        self.pre_order_traversal(index *2)
+        self.pre_order_traversal(index *2 + 1) 
+        
             
 new_binary_tree = Binary_tree_python_list(8)
 print(new_binary_tree.insertNode("Drink"))
 print(new_binary_tree.insertNode("Hot"))
 print(new_binary_tree.insertNode("Cold"))
+print(new_binary_tree.search("Hot"))
+print(new_binary_tree.insertNode("Coffee"))
+
+
+new_binary_tree.pre_order_traversal(1)
