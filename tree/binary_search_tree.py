@@ -124,6 +124,13 @@ def delete_node(rootNode, node_value):
     return rootNode
 
 
+def delete_All_node(rootNode):
+    rootNode.data = None
+    rootNode.rightChild = None
+    rootNode.leftChild = None
+    return "Binary search tree hass been successfully deleted"
+
+
 bst = BinarySearchTree(None)
 
 insert_node(bst, 70)
@@ -164,4 +171,9 @@ delete_node(bst, 70)
 delete_node(bst, 50)
 
 level_order_traversal(bst)
+in_order_traversal(bst)
+
+
+print("\n================================ Delete All =================================================================")
+print(delete_All_node(bst))
 in_order_traversal(bst)
