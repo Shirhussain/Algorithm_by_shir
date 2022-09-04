@@ -72,4 +72,40 @@ def searchNode(rootNode, node_value):
             searchNode(rootNode.rightChild, node_value)
 
 
+def get_hight(root_node):
+    if not root_node:
+        return 0
+    return root_node.hight
+
+
+def right_rotate(disbalance_node):
+    new_root = disbalance_node.leftChild
+    disbalance_node.leftChild = disbalance_node.leftChild.rightChild
+    new_root.rightChild = disbalance_node
+    disbalance_node.hight = 1 + \
+        max(get_hight(disbalance_node.leftChild),
+            get_hight(disbalance_node.rightChild))
+    new_root.hight = 1 + max(get_hight(new_root.leftChild),
+                             get_hight(new_root.rightChild))
+    return new_root
+
+
+def left_rotate(disbalance_node):
+    new_root = disbalance_node.leftChild
+    disbalance_node.rightChild = disbalance_node.rightChild.leftChild
+    new_root.leftChild = disbalance_node
+    disbalance_node.hight = 1 + \
+        max(get_hight(disbalance_node.leftChild),
+            get_hight(disbalance_node.rightChild))
+    new_root.hight = 1 + max(get_hight(new_root.leftChild),
+                             get_hight(new_root.rightChild))
+    return new_root
+
+
+def get_balance(root_node):
+    if not root_node:
+        return 0
+    return get_hight(root_node.leftChild) - get_hight(root_node.rightChild)
+
+
 AVL = AVLNode(11)
