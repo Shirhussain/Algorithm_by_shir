@@ -7,6 +7,7 @@
 # bf = |hr-hr| <= 1
 # then it will be a AVL
 
+from hashlib import blake2b
 from queue_linked_list import Queue
 
 
@@ -48,7 +49,7 @@ def level_order_traversal(rootNode):
     else:
         customeQueue = Queue()
         customeQueue.enqueue(rootNode)
-        while not customeQueue.is_empty():
+        while not customeQueue.isEmpty():
             root = customeQueue.dequeue()
             print(root.value.data)
             if root.value.leftChild is not None:
@@ -75,7 +76,7 @@ def searchNode(rootNode, node_value):
 def get_hight(root_node):
     if not root_node:
         return 0
-    return root_node.hight
+    return root_node.height
 
 
 def right_rotate(disbalance_node):
@@ -108,4 +109,38 @@ def get_balance(root_node):
     return get_hight(root_node.leftChild) - get_hight(root_node.rightChild)
 
 
-AVL = AVLNode(11)
+def insert_node(root_node, node_value):
+    if not root_node:
+        return AVLNode(node_value)
+    elif node_value < root_node.data:
+        root_node.leftChild = insert_node(root_node.leftChild, node_value)
+    else:
+        root_node.rightChild = insert_node(root_node.rightChild, node_value)
+    root_node.hight = 1 + \
+        max(get_hight(root_node.leftChild), get_hight(root_node.rightChild))
+    balance = get_balance(root_node)
+    # left left condation ---> then you need to rotate right
+    if balance > 1 and node_value < root_node.leftChild.data:
+        return right_rotate(root_node)
+    # left right condation ---> then you need to rotate left then right
+    if balance > 1 and node_value > root_node.leftChild.data:
+        root_node.leftChild = left_rotate(root_node.leftChild)
+        return right_rotate(root_node)
+    # right right condation ---> then you need to rotate left
+    if balance < -1 and node_value > root_node.rightChild.data:
+        return left_rotate(root_node)
+    # right left condation ---> then you need to rotate right then left
+    if balance < -1 and node_value < root_node.rightChild.data:
+        root_node.rightChild = right_rotate(root_node.rightChild)
+        return left_rotate(root_node)
+
+    return root_node
+
+
+AVL = AVLNode(5)
+
+AVL = insert_node(AVL, 10)
+AVL = insert_node(AVL, 20)
+AVL = insert_node(AVL, 15)
+
+level_order_traversal(AVL)
