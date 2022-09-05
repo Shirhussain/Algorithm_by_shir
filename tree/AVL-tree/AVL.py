@@ -83,6 +83,8 @@ def right_rotate(disbalance_node):
     new_root = disbalance_node.leftChild
     disbalance_node.leftChild = disbalance_node.leftChild.rightChild
     new_root.rightChild = disbalance_node
+    # you might aske that why we are adding 1 to it, it's becase, just hight of left and right
+    # we need to add 1 to it too.
     disbalance_node.hight = 1 + \
         max(get_hight(disbalance_node.leftChild),
             get_hight(disbalance_node.rightChild))
@@ -137,10 +139,68 @@ def insert_node(root_node, node_value):
     return root_node
 
 
+def get_minimum_value_node(root_node):
+    if root_node is None or root_node.leftChild is None:
+        return root_node
+    return get_minimum_value_node(root_node.leftChild)
+
+
+def delete_node(root_node, node_value):
+    if not root_node:
+        return root_node
+    elif node_value < root_node.data:
+        root_node.leftChild = delete_node(root_node.leftChild, node_value)
+    elif node_value > root_node.data:
+        root_node.rightChild = delete_node(root_node.rightChild, node_value)
+    else:
+        if root_node.leftChild is None:
+            temp = root_node.rightChild
+            root_node = None
+            return temp
+        elif root_node.rightChild is None:
+            temp = root_node.leftChild
+            root_node = None
+            return temp
+        temp = get_minimum_value_node(root_node.rightChild)
+        root_node.data = temp.data
+        root_node.rightChild = delete_node(root_node.rightChild, temp.data)
+    root_node.hight = 1 + \
+        max(get_hight(root_node.leftChild), get_hight(root_node.rightChild))
+    balance = get_balance(root_node)
+    if balance > 1 and get_balance(root_node.leftChild) >= 0:
+        return right_rotate(root_node)
+    if balance < -1 and get_balance(root_node.rightChild) <= 0:
+        return left_rotate(root_node)
+    if balance > 1 and get_balance(root_node.leftChild) < 0:
+        root_node.leftChild = left_rotate(root_node.leftChild)
+        return right_rotate(root_node)
+    if balance < -1 and get_balance(root_node.rightChild) > 0:
+        root_node.rightChild = right_rotate(root_node.rightChild)
+        return left_rotate(root_node)
+    return root_node
+
+
+def delete_entire_tree(root_node):
+    root_node.data = None
+    root_node.leftChild = None
+    root_node.rightChild = None
+    return "Entire  tree deleted successfully"
+
+
 AVL = AVLNode(5)
 
 AVL = insert_node(AVL, 10)
 AVL = insert_node(AVL, 20)
 AVL = insert_node(AVL, 15)
 
+level_order_traversal(AVL)
+print("================================================================")
+
+new_avl = delete_node(AVL, 10)
+
+level_order_traversal(new_avl)
+
+print("================================================================")
+
+delete_entire_tree(AVL)
 level_order_traversal(AVL)
