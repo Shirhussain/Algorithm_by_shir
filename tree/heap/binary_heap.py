@@ -121,6 +121,10 @@ def extract_node(root_node, heapType):
         return extracted_Node
 
 
+def delete_entire_binary_heap(root_node):
+    root_node.customeList = None
+
+
 new_binary_heap = Heap(5)
 print(size_of_heap(new_binary_heap))
 
@@ -137,3 +141,8 @@ leve_order_traversal(new_binary_heap)
 print("==========================")
 extract_node(new_binary_heap, "Max")
 leve_order_traversal(new_binary_heap)
+
+
+print("==========================")
+delete_entire_binary_heap(new_binary_heap)
+# leve_order_traversal(new_binary_heap)
