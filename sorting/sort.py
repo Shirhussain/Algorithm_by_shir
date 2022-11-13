@@ -22,3 +22,19 @@ def selection_sort(arr):
 
 
 selection_sort(my_list)
+
+
+def insertion_sort(arr):
+    for i in range(len(arr)):
+        # current element is
+        key = arr[i]
+        # previous element before the key
+        j = i-1
+        # if current element is < than previous element then we change the position
+        while j >= 0 and key < arr[j]:
+            arr[j+1] = arr[j]
+        arr[j+1] = key
+    print(arr)
+
+
+insertion_sort(my_list)
