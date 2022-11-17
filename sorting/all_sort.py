@@ -213,31 +213,65 @@ print(data)
 
 # ================================================================= HeapSort==
 
-def heapify(arr, number, index):
+def heapify(arr, num, index):
     smallest = index
     left = 2*index + 1
     right = 2*index + 2
-    if left < number and arr[left] < arr[smallest]:
+    # if the samllest number is the left child then it would be the smallest number
+    # otherwise if the smallest number is the right child then it would be the smallest number
+    if left < num and arr[left] < arr[smallest]:
         smallest = left
-    if right < number and arr[right] < arr[smallest]:
+    if right < num and arr[right] < arr[smallest]:
         smallest = right
-    # if smallest is not eql to root
+    # then we check if the smallest number is not the root number
+    # then we swap smallest with the root number
     if smallest != index:
         arr[index], arr[smallest] = arr[smallest], arr[index]
-        heapify(arr, number, smallest)
+        # then we call heapify recursively for it's subtree
+        heapify(arr, num, smallest)
 
 
 def heap_sort(array):
-    n = len(array)
-    # go down up to 0, first we need heapify it. which is min heap
-    for i in range(int(n/2)-1, -1, -1):
-        heapify(array, n, i)
+    len_num = len(array)
+    for i in range(int(len_num/2)-1, -1, -1):
+        heapify(array, len_num, i)
 
     # after that we need to extract from heapify then it will automatically sorted
-    for i in range(n-1, 0, -1):
+    for i in range(len_num - 1, 0, -1):
         array[i], array[0] = array[0], array[i]
         heapify(array, i, 0)
-    array.reversed()
+    array.reverse()
 
 
-print(heap_sort(my_list))
+print("=========================== heap sort result =====================================")
+heap_sort(my_list)
+print(my_list)
+
+# def heapify(arr, number, index):
+#     smallest = index
+#     left = 2*index + 1
+#     right = 2*index + 2
+#     if left < number and arr[left] < arr[smallest]:
+#         smallest = left
+#     if right < number and arr[right] < arr[smallest]:
+#         smallest = right
+#     # if smallest is not eql to root
+#     if smallest != index:
+#         arr[index], arr[smallest] = arr[smallest], arr[index]
+#         heapify(arr, number, smallest)
+
+
+# def heap_sort(array):
+#     n = len(array)
+#     # go down up to 0, first we need heapify it. which is min heap
+#     for i in range(int(n/2)-1, -1, -1):
+#         heapify(array, n, i)
+
+#     # after that we need to extract from heapify then it will automatically sorted
+#     for i in range(n-1, 0, -1):
+#         array[i], array[0] = array[0], array[i]
+#         heapify(array, i, 0)
+#     array.reversed()
+
+
+# print(heap_sort(my_list))
