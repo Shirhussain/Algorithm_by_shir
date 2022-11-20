@@ -1,3 +1,4 @@
+# first it's better to see _graph.py in this directory
 class Graph:
     def __init__(self):
         # for now i just want to create a {}

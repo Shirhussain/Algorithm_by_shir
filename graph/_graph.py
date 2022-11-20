@@ -11,7 +11,7 @@
 # just connect this alphabet to each node
 
 class Graph:
-    def __init__(self, graph_dict):
+    def __init__(self, graph_dict=None):
         if graph_dict is None:
             return {}
         self.graph_dict = graph_dict
