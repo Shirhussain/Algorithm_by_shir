@@ -13,7 +13,11 @@ class Graph:
         self.graph_dict = graph_dict
 
     # it only works for related graph
-
+    # it's not working for weighted graph
+    # wight is actually the number which is encluded in the graph consider the price of flyight between cities
+    # work with unweighted undirected graph
+    # work with unweighted directed graph
+    # so it means DFC can not find the single shortest path problem
     def breadth_first_search(self, start, end):
         queue = []
         queue.append([start])
