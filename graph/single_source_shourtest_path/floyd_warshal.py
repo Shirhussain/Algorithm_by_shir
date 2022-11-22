@@ -1,5 +1,6 @@
 # in floyd Warshall we never visited a vertex twice.
 
+# you can't apply for negative numbers
 # we take this as infinity number
 import itertools
 INF = 9999
