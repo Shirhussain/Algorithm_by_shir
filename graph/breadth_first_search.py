@@ -20,7 +20,7 @@ class Graph:
         queue = [vertex]
         while queue:
             dequeue_vertex = queue.pop(0)
-            print(dequeue_vertex)
+            print("this is dequeue vertex: ", dequeue_vertex)
             for adjacent_vertex in self.graph_dict[dequeue_vertex]:
                 if adjacent_vertex not in visited:
                     visited.append(adjacent_vertex)
