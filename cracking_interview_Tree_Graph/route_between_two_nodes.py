@@ -3,7 +3,7 @@
 # Given a directed graph and two nodes (S and E), design an algorithm to find out whether there is a route from S to E.
 
 # Examples
-
+# breadth_first_search technique
 class Graph:
     def __init__(self, graph_dict=None):
         if graph_dict is None:
