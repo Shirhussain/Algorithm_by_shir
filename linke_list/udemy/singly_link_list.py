@@ -7,13 +7,13 @@
 #     def __init__(self):
 #         self.head = None
 #         self.tail = None
-    
+
 #     def __iter__(self):
 #         node = self.head
 #         while node:
 #             yield node
 #             node = node.next
-    
+
 #     def insertSLL(self, value, location):
 #         new_node = Node(value)
 #         if self.head is None:
@@ -56,6 +56,7 @@ class Node:
         self.value = value
         self.next = None
 
+
 class SinglyLinkedList:
     def __init__(self):
         self.head = None
@@ -66,8 +67,8 @@ class SinglyLinkedList:
         while node:
             yield node
             node = node.next
-    
-    def insert(self,value, location):
+
+    def insert(self, value, location):
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
@@ -83,7 +84,7 @@ class SinglyLinkedList:
             else:
                 temp_node = self.head
                 index = 0
-                while index < location -1:
+                while index < location - 1:
                     temp_node = temp_node.next
                     index += 1
                 next_node = temp_node.next
@@ -91,8 +92,7 @@ class SinglyLinkedList:
                 new_node.next = next_node
                 if temp_node == new_node:
                     self.tail = new_node
-                    
-                    
+
     def traverseSLL(self):
         # traverse throw the linklist
         if self.head is None:
@@ -102,7 +102,7 @@ class SinglyLinkedList:
             while node is not None:
                 print(node.value)
                 node = node.next
-    
+
     def searchSLL(self, node_value):
         if self.head is None:
             return "The singlyLinkList does not exist"
@@ -112,8 +112,8 @@ class SinglyLinkedList:
                 if node.value == node_value:
                     return node.value
                 node = node.next
-            return "The value dose not exist in the lsit"  
-        
+            return "The value dose not exist in the lsit"
+
     def delete_node(self, location):
         if self.head is None:
             print("The singlyLinkList does not exist")
@@ -139,16 +139,16 @@ class SinglyLinkedList:
                         node = node.next
                     node.next = None
                     self.tail = node
-            
+
             else:
                 temp_node = self.head
                 index = 0
-                while index < location -1:
+                while index < location - 1:
                     temp_node = temp_node.next
                     index += 1
                 next_node = temp_node.next
                 temp_node.next = next_node.next
-                
+
     def deleteEntireSLL(self):
         if self.head is None:
             print("The link does not exist")
@@ -157,15 +157,15 @@ class SinglyLinkedList:
             # the garbage collector will delete nodes
             self.head = None
             self.tail = None
-            
+
 
 sll = SinglyLinkedList()
-sll.insert(1,1)
-sll.insert(2,1)
-sll.insert(3,1)
-sll.insert(10,2)
-sll.insert(11,2)
-sll.insert(100,2)
+sll.insert(1, 1)
+sll.insert(2, 1)
+sll.insert(3, 1)
+sll.insert(10, 2)
+sll.insert(11, 2)
+sll.insert(100, 2)
 
 
 print([node.value for node in sll])
@@ -177,5 +177,3 @@ print([node.value for node in sll])
 sll.deleteEntireSLL()
 
 print([node.value for node in sll])
-
-
