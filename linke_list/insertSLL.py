@@ -8,13 +8,12 @@ class SLingList:
     def __init__(self):
         self.head = None
         self.tail = None
-        
+
     def __iter__(self):
         node = self.head
-        while node :
+        while node:
             yield node
             node = node.next
-    
 
     def insertSiglyLinkList(self, location, value):
         new_node = Node(value)
@@ -32,7 +31,7 @@ class SLingList:
             else:
                 temp_node = self.head
                 index = 0
-                while index < location -1:
+                while index < location - 1:
                     temp_node = temp_node.next
                     index += 1
                 next_node = temp_node.next
@@ -40,7 +39,7 @@ class SLingList:
                 new_node.next = next_node
                 if temp_node == self.tail:
                     self.tail = new_node
-    
+
     def search(self, data):
         if self.head is None:
             return "The node does not exist"
@@ -51,9 +50,7 @@ class SLingList:
                     return node.value
                 else:
                     return "the value does not exist on the list"
-                
-        
-    
+
     def traverseLList(self):
         if self.head is None:
             print("The singlyLinkList does not exist")
@@ -63,12 +60,11 @@ class SLingList:
                 print(node.value)
                 node = node.next
 
+
 singleLL = SLingList()
-singleLL.insertSiglyLinkList(1,1)
-singleLL.insertSiglyLinkList(2,1)
-singleLL.insertSiglyLinkList(3,1)
-singleLL.insertSiglyLinkList(4,1)
+singleLL.insertSiglyLinkList(1, 1)
+singleLL.insertSiglyLinkList(2, 1)
+singleLL.insertSiglyLinkList(3, 1)
+singleLL.insertSiglyLinkList(4, 1)
 
 print([node.value for node in singleLL])
-
-

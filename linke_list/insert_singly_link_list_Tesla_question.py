@@ -22,7 +22,7 @@ class SLingList:
             yield node
             node = node.next
 
-    def insertSiglyLinkList(self, value):
+    def insertSinglyLinkList(self, value):
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
@@ -50,6 +50,6 @@ SLL.head.next.next.next.next = node5
 SLL.tail = node5
 
 
-SLL.insertSiglyLinkList(60)
+SLL.insertSinglyLinkList(60)
 
 print([node.value for node in SLL])
