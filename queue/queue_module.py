@@ -1,6 +1,6 @@
 import queue as q
 
-custome = q.Queue(maxsize = 5)
+custome = q.Queue(maxsize=5)
 print(custome.empty())
 # adding
 custome.put(1)

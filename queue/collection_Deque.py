@@ -12,5 +12,3 @@ custome.append(5)
 
 custome.popleft()
 # custome.clear()
-
-print(custome)
