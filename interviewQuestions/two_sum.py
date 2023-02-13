@@ -1,33 +1,44 @@
-# 85. Write a program to check and return the pairs of a given array A whose sum value is equal to a target value N.
-from hashlib import new
+# list = [1,3,4,5,64,4,8, 9], target = 9
+my_list = [1,3,5,64,8,9]
+
+# def two_sum(lst, target):
+#     new_list = []
+#     for i in lst:
+#         New_target = target - i
+#         new_list.append(New_target)
+#         if i in new_list:
+#             return [i, New_target]
 
 
-arr = [1, 2, 40, 3, 9, 4]
-N = 3
+# print(two_sum(my_list, 9))
 
 
-def two_sums(array, target):
+# def two_sum(lst, target):
+#     for i in range(len(lst)):
+#         for j in range(i, len(lst)):
+#             if lst[i] + lst[j] == target:
+#                 return [lst[i], lst[j]]
 
-    for i in range(len(array)):
-        for j in range(i+1, len(array)):
-            if array[i] + array[j] == target:
-                return i, j
-
-
-print(two_sums(arr, N))
+# print(two_sum(my_list, 9))
 
 
+# def two_sum(lst, target):
+#     new_list = {}
+#     for inx, value in enumerate(lst):
+#         if target - value in new_list:
+#             return [new_list[target-value], inx]
+#         else:
+#             new_list[value] = inx
+
+# print(two_sum(my_list, 9))
 
 
-def print_pairs(arr, N):
-    # hash set
-    hash_set = set()
+def two_sum(lst, target):
+    for i in range(len(lst)):
+        for j in range(i+1, len(lst)):
+            if lst[i] == lst[j]:
+                continue
+            elif lst[i] + lst[j] == target:
+                print(i,j)
 
-    for i in range(len(arr)):
-        val = N-arr[i]
-        if (val in hash_set):  # check if N-x is there in set, print the pair
-            print(f"Pairs {str(arr[i])}, {str(val)}")
-        hash_set.add(arr[i])
-
-
-print_pairs(arr, N)
+two_sum(my_list, 9)
