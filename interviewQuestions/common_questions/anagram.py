@@ -1,11 +1,12 @@
 
+from collections import Counter
 from loguru import logger
 import snoop
 import heartrate
 # heartrate.trace(browser=True)
 
 input1 = "nameless"
-input2 = "salesmam"
+input2 = "salesman"
 
 
 # @logger.catch
@@ -27,3 +28,12 @@ def is_anagram(input1, input2):
 
 
 print(is_anagram(input1, input2))
+
+
+def collection_anagram(input1, input2):
+    if len(input1) != len(input2):
+        return False
+    return Counter(input1) == Counter(input2)
+
+
+print(collection_anagram(input1, input2))
