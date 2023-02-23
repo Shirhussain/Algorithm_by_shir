@@ -1,0 +1,6 @@
+Note: In the above example, we haven’t provided the access mode. By default, the open() function will open the file in read mode, if no parameter is provided.
+
+Example #2: Adding data to the existing file in Python 
+
+If you want to add more data to an already created file, then the access mode should be ‘a’ which is append mode, if we select ‘w’ mode then the existing text will be overwritten by the new data.
+
