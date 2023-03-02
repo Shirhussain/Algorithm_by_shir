@@ -25,6 +25,7 @@ for item in my_list:
 print(out_put)
 
 # hakimi way
+out_put = {}
 for key, value, *rest in my_list:
     if key in out_put:
         out_put[key].append(value)

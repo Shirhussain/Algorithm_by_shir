@@ -59,6 +59,7 @@ def calculates_the_strike_price(start):
 
 
 if __name__ == '__main__':
+    # Input: start date (string '2022-07-15')
     stock_price = calculates_the_strike_price(sys.argv[1])
     print(f"Your strike price is ${stock_price :.2f}")
 
@@ -82,22 +83,22 @@ def get_discount(items):
     yield items[-1]
 
 
-# print(list(get_discount([8,4,6,2,3])))
+print(list(get_discount([8, 4, 6, 2, 3])))
 
 
 vehicles = [
     {"Vehicle": '5Y1', "FactoryGateDate": "2021-05-01",
-        "Process": "Paint", "ProcessingTime": 100},
+     "Process": "Paint", "ProcessingTime": 100},
     {"Vehicle": '5Y1', 'FactoryGateDate': "2021-05-01",
-        "Process": "GA", "ProcessingTime": 100},
+     "Process": "GA", "ProcessingTime": 100},
     {"Vehicle": '5Y3', "FactoryGateDate": "2021-05-02",
-        'Process': 'Paint', 'ProcessingTime': 100},
+     'Process': 'Paint', 'ProcessingTime': 100},
     {"Vehicle": '5Y3', 'FactoryGateDate': "2021-05-02",
-        'Process': 'GA', "ProcessingTime": 100},
+     'Process': 'GA', "ProcessingTime": 100},
     {"Vehicle": '5Y2', 'FactoryGateDate': "2021-05-01",
-        'Process': 'Paint', 'ProcessingTime': 50},
+     'Process': 'Paint', 'ProcessingTime': 50},
     {"Vehicle": '5Y2', 'FactoryGateDate': "2021-05-01",
-        'Process': 'GA', 'ProcessingTime': 50}
+     'Process': 'GA', 'ProcessingTime': 50}
 ]
 
 # {'"2021-05-01" : {'5Y1': 200,  '5Y2: -100, - '"2021-05-02";
@@ -128,4 +129,4 @@ def blend_vehicle_with_plan(vehicles, plan):
     return out_put
 
 
-print(blend_vehicle_with_plan(vehicles, plans))
+# print(blend_vehicle_with_plan(vehicles, plans))
