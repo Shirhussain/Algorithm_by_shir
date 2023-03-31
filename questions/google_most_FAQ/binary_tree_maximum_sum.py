@@ -1,4 +1,5 @@
 from typing import Optional
+import snoop 
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -7,6 +8,7 @@ class TreeNode:
         self.right = right
         
 class Solution:
+    @snoop
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         result = [root.val]
 
@@ -23,7 +25,7 @@ class Solution:
 
             #sum the max of value when it's spliting it means form the root get left and right jsut tree number
             result[0] = max(result[0], root.val + max_left + max_right)
-            return root.val + max(max_left, max_right)
+            return root.val + max(max_left, max_right)      
         dfs(root)
         return result[0]
 
