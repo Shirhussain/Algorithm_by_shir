@@ -76,6 +76,3 @@ def longest_palindrome(s):
     # or
     # odd_counter = sum(1 for char in counter.keys() if counter[char] % 2)
     # return len(s) - odd_counter + 1 if odd_counter else len(s)
-
-
-            
