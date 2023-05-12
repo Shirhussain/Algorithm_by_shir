@@ -39,4 +39,3 @@ def count(arr):
             print(arr[i])
             
 
-print(list(count([1, 1, 1, 5, 2, 1, 3, 4, 2])))
