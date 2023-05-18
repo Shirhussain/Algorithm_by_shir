@@ -28,3 +28,22 @@ def rotate(nums, k):
 nums = [1,2,3,4,5,6,7]
 
 print(rotate(nums, 3))
+
+
+def rotate_array(arr, k):
+    temp = []
+    i = 0 
+    
+    x = len(arr) - k 
+    while i < x:
+        temp.append(arr[i])
+        i += 1
+    i = 0 
+    while k < len(arr):
+        arr[i] = arr[k]
+        i += 1
+        k += 1
+    arr = arr[:i] + temp
+    return arr
+        
+print(rotate_array(nums, 3))
