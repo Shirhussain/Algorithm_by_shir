@@ -45,7 +45,7 @@ def bfsTree(root):
         if node.right is not None:
             q.append(node.right)
     return result
-
+    
 
 tree = Node(4)
 tree.left = Node(2)
@@ -61,3 +61,18 @@ bfs_result = bfsTree(tree)
 
 # Output the list
 print(list(bfs_result))
+
+
+arr = [4, 2, 5, 1, 3, 7, 6, 8]
+
+def build_tree(arr):
+    if not arr:
+        return
+    mid = len(arr)//2
+    root = Node(arr[mid])
+    root.left = build_tree(arr[:mid])
+    root.right = build_tree(arr[mid+1:])
+    return root  
+        
+result = bfsTree(build_tree(arr))
+print(result)
