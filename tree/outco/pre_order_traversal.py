@@ -18,6 +18,21 @@ def preDFS(root):
     return result
 
 
+def pred_dfs_depth(root):
+    result = []
+    max_depth = -1
+    def traverse(node, depth):
+        nonlocal max_depth
+        if node is None:
+            return 
+        max_depth = max(depth,max_depth)
+        result.append(node.value)
+        traverse(node.left, depth+1)
+        traverse(node.right, depth+1)
+    traverse(root, 0)
+    return result, max_depth     
+
+
 root = TreeNode(10)
 root.left = TreeNode(8)
 root.right = TreeNode(2)
@@ -25,6 +40,18 @@ root.left.left = TreeNode(3)
 root.left.right = TreeNode(5)
 root.right.left = TreeNode(2)
 print(preDFS(root))
+
+"""
+                10
+               /  \
+              8    2
+            /  \   / 
+           3    5 2
+
+
+"""
+
+print(pred_dfs_depth(root))
 
 
 def pre_iterative(node):
