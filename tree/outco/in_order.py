@@ -36,14 +36,15 @@ class Node:
         result.append(root.value)
         result.extend(self.in_order(root.right))
         return result
+            
+    def printPostorder(self,root):
+        result = []
+        if root:
+            result.extend(self.printPostorder(root.left))
+            result.extend(self.printPostorder(root.right))
+            result.append(root.value)
+        return result
     
-    # def post_order(self, root):
-    #     result = []
-    #     if root is None:
-    #         return result
-    #     result.extend(self.post_order(root.left))
-    #     result.extend(self.post_order(root.right))
-    #     result.append(root.value)
 
 tree = Node()
 tree.insert(4)
@@ -58,6 +59,7 @@ tree.insert(8)
 
 tree.print_tree()
 print(tree.in_order(tree))
+print(tree.printPostorder(tree))
 
 
             
