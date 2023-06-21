@@ -89,7 +89,7 @@ function nonconsecutive_ones(n) {
 #     if len(build_string) == n:
 #       result.append(build_string)
 #       return
-  
+
 #     # recursive case(s)
 #     helper(build_string + "0")
 #     if not build_string or build_string[-1] == "0":
@@ -98,34 +98,73 @@ function nonconsecutive_ones(n) {
 #   helper("")
 #   return result
 
-def helper(build_string, result, n):
-  print(build_string, result, n)
-  if len(build_string) == n:
-    result.append(build_string)
-    return
 
-  # recursive case(s)
-  helper(build_string + "0", result, n)
-  if not build_string or build_string[-1] == "0":
-    helper(build_string + "1", result, n)
+def helper(build_string, result, n):
+    print(build_string, result, n)
+    if len(build_string) == n:
+        result.append(build_string)
+        return
+
+    # recursive case(s)
+    helper(build_string + "0", result, n)
+    if not build_string or build_string[-1] == "0":
+        helper(build_string + "1", result, n)
 
 
 def ones(n):
-  result = []
-  helper("", result, n)
-  return result
+    result = []
+    helper("", result, n)
+    return result
+
 
 print(ones(3))
-
 
 
 def generate_binary_strings(n):
     results = []
     for i in range(2**n):
-        binary = bin(i)[2:].zfill(n)  # Convert to binary and pad with leading zeros
+        # Convert to binary and pad with leading zeros
+        binary = bin(i)[2:].zfill(n)
         results.append(binary)
     return results
+
 
 n = 3
 binary_strings = generate_binary_strings(n)
 print(binary_strings)
+
+
+"""
+
+Output: ["000", "001", "010", "100", "101"]
+
+result = ["000", ]           
+n = 3
+
+                             ("")                3 i
+                        /              \
+                     ("0")            ("1")      2 i
+                /           \         /      
+            ("00")        ("01")  ("10")         1 i
+          /     \        /           /\
+    ("000")   ("001") ("010")  ("100") ("101")   0 i
+
+
+"""
+
+
+def non_consiqutive(n):
+    result = []
+
+    def helper(string):
+        if len(string) == n:
+            result.append(string)
+            return
+        helper(string + "0")
+        if not string or str(string[-1]) != '1':
+            helper(string + "1")
+    helper("")
+    return result
+
+
+print("\n\n\n\n the new one: ", non_consiqutive(3))
