@@ -1,9 +1,9 @@
 class Node:
     def __init__(self, value=None):
         self.value = value
-        self.left = None 
-        self.right = None 
-        
+        self.left = None
+        self.right = None
+
     def insert(self, new_node):
         if self.value:
             if new_node > self.value:
@@ -17,8 +17,6 @@ class Node:
                 self.left.insert(new_node)
         else:
             self.value = new_node
-        
-            
 
     def print_tree(self):
         if self.left:
@@ -26,8 +24,7 @@ class Node:
         print(self.value)
         if self.right:
             self.right.print_tree()
-    
-    
+
     def in_order(self, root):
         result = []
         if root is None:
@@ -36,15 +33,15 @@ class Node:
         result.append(root.value)
         result.extend(self.in_order(root.right))
         return result
-            
-    def printPostorder(self,root):
+
+    def printPostorder(self, root):
         result = []
         if root:
             result.extend(self.printPostorder(root.left))
             result.extend(self.printPostorder(root.right))
             result.append(root.value)
         return result
-    
+
 
 tree = Node()
 tree.insert(4)
@@ -62,4 +59,17 @@ print(tree.in_order(tree))
 print(tree.printPostorder(tree))
 
 
-            
+# leetcode
+
+class Solution:
+    def inorderTraversal(self, root):
+        answer = []
+
+        def inorder(node):
+            if not node:
+                return
+            inorder(node.left)
+            answer.append(node.val)
+            inorder(node.right)
+        inorder(root)
+        return answer
