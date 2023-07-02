@@ -1,47 +1,51 @@
-# class Node:
-#     def __init__(self, value):
-#         self.value = value
-#         self.left = None
-#         self.right = None
+class Node:
+    def __init__(self, value=None):
+        self.value = value
+        self.left = None
+        self.right = None
 
 
-# class Solution:
-#     def post_order(self, root):
-#         result = []
-
-#         def helper(node):
-#             if node is None:
-#                 return
-#             helper(root.left)
-#             helper(root.right)
-#             result.append(node.value)
-#         helper(root)
-#         return result
-
-#     def add_node(self, root, new_node):
-#         node = Node(new_node)
-#         if root is None:
-#             root = node
-#         if root.value > node:
-#             if root.left is None:
-#                 root.left = Node(new_node)
-#             else:
-#                 root.left.add_node(root.left, new_node)
-#         elif root.right is not None:
-#             root.right.add_node(root.right, new_node)
-#         else:
-#             root.right = Node(new_node)
+def insert(root, new_node):
+    node = Node(new_node)
+    if root.value is None:
+        root.value = new_node
+    if new_node > root.value:
+        if root.right is None:
+            root.right = node
+        else:
+            insert(root.right, new_node)
+    else:
+        if root.left is None:
+            root.left = node
+        else:
+            insert(root.left, new_node)
 
 
-# tree = Solution()
-# tree.add_node(tree, 4)
-# tree.add_node(tree, 1)
-# tree.add_node(tree, 2)
-# tree.add_node(tree, 3)
-# tree.add_node(tree, 4)
-# tree.add_node(tree, 5)
-# tree.add_node(tree, 6)
-# tree.add_node(tree, 7)
-# tree.add_node(tree, 8)
+def post_order(root):
+    result = []
 
-# print(tree.post_order(tree))
+    def helper(node):
+        if node is None:
+            return
+        helper(node.left)
+        helper(node.right)
+        result.append(node.value)
+
+    helper(root)
+    return result
+
+
+tree = Node()
+
+insert(tree, 10)
+insert(tree, 4)
+insert(tree, 1)
+insert(tree, 2)
+insert(tree, 3)
+insert(tree, 4)
+insert(tree, 5)
+insert(tree, 6)
+insert(tree, 7)
+insert(tree, 8)
+
+print(post_order(tree))
