@@ -98,16 +98,22 @@ class MedianFinder:
         self.lower = []
 
     def addNum(self, element):
+        # if I give negative sign (-) to the min heap will become max heap
         if len(self.lower) == 0 or element < -self.lower[0]:
             heapq.heappush(self.lower, -element)
         else:
             heapq.heappush(self.upper, element)
 
         if len(self.lower) - len(self.upper) > 1:
+            # if the length is more than one then I'll promote that value
+            # to the upper
             promoted_value = -heapq.heappop(self.lower)
             heapq.heappush(self.upper, promoted_value)
         elif len(self.upper) > len(self.lower):
             demoted_value = heapq.heappop(self.upper)
+            # is used negative sign because I pushed already in upper "-"
+            # to make mean heap to max heap, here it will just reverse the sign
+            # and make it positive.
             heapq.heappush(self.lower, -demoted_value)
 
     def findMedian(self):
