@@ -27,14 +27,11 @@ class Trie:
 
     def is_word(self, word):
         current = self.root
-        index = 0
-
-        while index < len(word):
+        for index in range(len(word)):
             letter = word[index]
 
             if letter not in current.descending:
                 return False
             else:
                 current = current.descending[letter]
-            index += 1
         return current.is_word
