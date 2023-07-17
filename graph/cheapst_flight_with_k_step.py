@@ -49,3 +49,30 @@ dst = 3
 k = 1
 
 print(findCheapestPrice(n, flights, src, dst, k))
+
+
+# with Cache
+
+def findCheapestPrice(n, flights, src, dst, k):
+    cache = {}
+
+    def helper(src, num_of_stop):
+        if num_of_stop > k:
+            return float('inf')
+        elif src == dst:
+            return 0
+        elif (src, num_of_stop) in cache:
+            return cache[(src, num_of_stop)]
+
+        cheapest_flight = float('inf')
+        for flight in flights:
+            if flight[0] == src:
+                cheapest_flight = min(
+                    cheapest_flight, flight[2]+helper(flight[1], num_of_stop+1))
+        cache[(src, num_of_stop)] = cheapest_flight
+        return cheapest_flight
+    cheapest_flight = helper(src, -1)
+    return cheapest_flight if cheapest_flight != float('inf') else -1
+
+
+print(findCheapestPrice(n, flights, src, dst, k))
