@@ -98,6 +98,18 @@ arr = [0, 1, 1, 1, 0, 0, 0, 1, 1]
 print(sort_count(arr))
 
 
+def sorted_bit(arr):
+    mid = 0
+    for i in range(len(arr)):
+        if arr[i] == 0:
+            arr[i], arr[mid] = arr[mid], arr[i]
+            mid += 1
+    return arr
+
+
+print(sorted_bit(arr))
+
+
 # hallenge 1 : Number of Ones in a Sorted Bit Array
 # Given a sorted bit array (values of either 0 or 1), determine the number of 1’s in the array.
 # Perform this in O(log(N)) time complexity.
