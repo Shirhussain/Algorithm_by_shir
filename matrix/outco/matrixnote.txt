@@ -1,0 +1,90 @@
+https://docs.google.com/document/d/16qZeqPnp3wU1qnIfQaupfekiutl8_64h28qGAaaBLFM/edit
+
+Matrix
+What do we mean by Matrix?
+Matrix Two dimensional array/vector/list
+Grid: Represents 2-d space where each cell represents part of that space.
+Map to graph problems, might use the following techniques
+Dynamic programming?
+Backtracking?
+Table: 1d or 2d table, which can be used for memoization in DP.
+Other problems in the Matrix.
+Rotate a matrix
+How do I solve a Matrix problem?
+If matrix represents a graph, we can use graph algorithms such as DFS, BFS
+
+Write a template for backtracking on a matrix(grid)
+What is Backtracking?
+Recursive approach, extension of recursion. 
+State tree (represents a series of all choices)
+Backtracking is really a DFS on this tree with pruning optimization.
+In a grid we usually have four choices:
+up/down/left/right
+And we really run DFS on the state tree 
+
+
+DFS(node):
+	# 0. If (node is leaf) :
+	#	 Maybe store some value do some calculation
+	#    	 return
+# 1. Mark node as visited	
+# 2. for (neighbors n of node):
+#	  if ( n is not an answer) :
+#		continue // Backtracking!
+
+#      if(n is not visited) :
+#        Adjust auxiliary variables
+# 	   DFS(n)
+#        undo Adjust auxiliary variables
+def matrix_backtrack(matrix):
+    deltas = [(1,0), (-1,0), (0,1), (0,-1)]
+    N = len(matrix)
+    M = len(matrix[0])
+    
+    def get_neighbors(x,y):
+        neighbors = []
+        for dx, dy in deltas:
+            if 0 <= x + dx < N and 0 <= y + dy < M:
+                neighbors.append((x+dx, y+dy)) 
+
+
+    ans = []
+    def helper_dfs(x,y, path, state):
+        
+        # IMPLEMENT base case
+        if ...is_basecase(state):
+            ans.append( ... ) 
+            return 
+
+        saved_val = matrix[x][y]
+        matrix[x][y] = -1
+
+        # IMPLEMENT recursive case branching
+        for neighbor in ...get_neighbors(state):
+            
+            # IMPLEMENT pruning logic
+            if ...should_prune(neighbor):
+                continue
+            
+            # IMPLEMENT state update for each branch
+            new_state = ...update(state, branch)
+
+            path.add(branch)
+            dfs(new_state, path)
+            
+            path.pop()
+        matrix[x][y] = saved_val
+
+    return ans
+
+Do we need to mark nodes as visited in Matrix(grid) traversal?
+If you can go up/down/left/right, then you need to mark nodes as visited.
+If you can only go down/right, then no need to mark nodes as visited.
+What is the runtime and space complexity of a Matrix traversal algorithm?
+O(M*N)?
+
+What is the runtime and space complexity of a Matrix backtracking algorithm?
+What is the space complexity of DFS?
+The max size of the stack is important, which in this case is the height of the tree.
+
+
