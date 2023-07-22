@@ -33,3 +33,21 @@ def rec_array(arr):
 
 
 print(rec_array(my_array))
+
+
+def reverse_str(string):
+    result = ''
+
+    def helper(index):
+        nonlocal result
+        if index < 0:
+            return
+        result += string[index]
+        helper(index-1)
+    helper(len(string)-1)
+
+    return result
+
+
+my_str = "Just do it!"
+print(reverse_str(my_str))
