@@ -51,3 +51,38 @@ def reverse_str(string):
 
 my_str = "Just do it!"
 print(reverse_str(my_str))
+
+
+def print_array_pairs(arr, i=0):
+    """
+    input: [1,2,3,4,5,6,7,8, 9]
+    output: [[1,2], [3,4], [5,6], [7,8], [9,-1]]
+    """
+    result = []
+    if i >= len(arr):
+        return result
+    pair = [arr[i], arr[i+1] if i+1 < len(arr) else -1]
+    result.append(pair)
+    return result + print_array_pairs(arr, i+2)
+
+
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(print_array_pairs(l))
+
+
+def print_arr_pairs(arr):
+    result = []
+
+    def traverse(i):
+        if i >= len(arr):
+            return result
+        pair = [arr[i], -1]
+        if i+1 < len(arr):
+            pair[1] = arr[i+1]
+        result.append(pair)
+        traverse(i+2)
+    traverse(0)
+    return result
+
+
+print(print_arr_pairs(l))
