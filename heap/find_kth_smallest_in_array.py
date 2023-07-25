@@ -16,3 +16,21 @@ def find_kth_smallest(arr, k):
 
 
 print(find_kth_smallest(l, 4))
+
+
+def find_k_smallest(nums, k):
+    if not nums:
+        return
+    arr = [-x for x in nums]
+    # heapify will create max heap then with negation I'll create mean heap
+    heapq.heapify(arr)
+    i = 0
+    while i < k:
+        heapq.heappop(arr)
+        i += 1
+
+    return -1 * heapq.heappop(arr)
+
+
+l = [3, 7, 4, 10, 20, 15]
+print(find_k_smallest(l, 3))
