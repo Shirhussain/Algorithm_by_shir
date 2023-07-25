@@ -107,5 +107,21 @@ def flatten(arr):
     return result
 
 
-lst = [1, [2, 3, [4]], 5, [[6, 7]]]
+lst = [1, [2, 3, [4]], 5, [[6, 7, 8, 0]]]
 print(flatten(lst))
+
+
+def power(base, power):
+    result = 1
+
+    def helper(counter):
+        nonlocal result
+        if counter == power:
+            return
+        result *= base
+        helper(counter + 1)
+    helper(0)
+    return result
+
+
+print(power(3, 4))
