@@ -86,3 +86,26 @@ def print_arr_pairs(arr):
 
 
 print(print_arr_pairs(l))
+
+
+def flatten(arr):
+    """
+    input: [1,[2,3,[4]], 5, [[6,7]]]
+    output: [1,2,3,4,5,6,7]
+    """
+    result = []
+
+    def traverse(elements):
+        if type(elements) != list:
+            result.append(elements)
+            return
+
+        for i in range(len(elements)):
+            traverse(elements[i])
+    traverse(arr)
+
+    return result
+
+
+lst = [1, [2, 3, [4]], 5, [[6, 7]]]
+print(flatten(lst))
