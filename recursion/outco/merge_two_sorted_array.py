@@ -143,3 +143,33 @@ array2 = [0, 2, 4, 6, 8, 19]
 
 
 print(merg_all(array1, array2))
+
+
+def sort_recursive(arrA, arrB):
+    result = [0] * (len(arrA) + len(arrB))
+
+    def compute(i, j):
+        if i >= len(arrA):
+            while j < len(arrB):
+                result[i+j] = arrB[j]
+                j += 1
+        elif j >= len(arrB):
+            while i < len(arrA):
+                result[i+j] = arrA[i]
+                i += 1
+        else:
+            if arrA[i] < arrB[j]:
+                result[i+j] = arrA[i]
+                compute(i+1, j)
+            else:
+                result[i+j] = arrB[j]
+                compute(i, j+1)
+
+    compute(0, 0)
+
+    return result
+
+
+array1 = [1, 9, 22]
+array2 = [0, 2, 4, 6, 8, 19]
+print(sort_recursive(array1, array2))
