@@ -173,3 +173,31 @@ def sort_recursive(arrA, arrB):
 array1 = [1, 9, 22]
 array2 = [0, 2, 4, 6, 8, 19]
 print(sort_recursive(array1, array2))
+
+
+def mrg_list_recursive(l1, l2):
+    result = []
+
+    def helper(i, j):
+        if i >= len(l1):
+            while j < len(l2):
+                result.append(l2[j])
+                j += 1
+        elif j >= len(l2):
+            while i < len(l1):
+                result.append(l1[i])
+                i += 1
+        else:
+            if l1[i] == l2[j]:
+                result.append(l1[i])
+                helper(i+1, j)
+            else:
+                result.append(l2[j])
+                helper(i, j+1)
+    helper(0, 0)
+    return result
+
+
+array1 = [1, 9, 22]
+array2 = [0, 2, 4, 6, 8, 19]
+print(mrg_list_recursive(array1, array2))
