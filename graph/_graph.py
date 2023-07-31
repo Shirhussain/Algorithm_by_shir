@@ -95,7 +95,49 @@ print(is_tree(graph))  # Output: True
 
 
 
+shortest path 
 
+
+from collections import deque
+
+def shortest_path(graph, start, end):
+    if start not in graph or end not in graph:
+        return None
+
+    queue = deque([(start, [start])])
+    visited = set()
+
+    while queue:
+        node, path = queue.popleft()
+
+        if node == end:
+            return path
+
+        visited.add(node)
+
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                queue.append((neighbor, path + [neighbor]))
+
+    return None
+
+# Example usage:
+graph = {
+    0: [1, 2],
+    1: [0, 3],
+    2: [0, 4],
+    3: [1],
+    4: [2]
+}
+
+start_node = 0
+end_node = 4
+result = shortest_path(graph, start_node, end_node)
+
+if result:
+    print(f"Shortest path from node {start_node} to node {end_node}: {result}")
+else:
+    print("No path found between the given nodes.")
 
 
 
