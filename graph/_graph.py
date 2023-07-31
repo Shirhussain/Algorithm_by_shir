@@ -140,6 +140,53 @@ else:
     print("No path found between the given nodes.")
 
 
+or for DFS
+
+
+def shortest_path(graph, start, end):
+    if start not in graph or end not in graph:
+        return None
+
+    visited = set()
+    path = []
+
+    def dfs(node):
+        nonlocal path
+
+        if node == end:
+            path.append(node)
+            return True
+
+        visited.add(node)
+
+        for neighbor in graph[node]:
+            if neighbor not in visited and not path:
+                if dfs(neighbor):
+                    path.append(node)
+                    return True
+
+        return False
+
+    dfs(start)
+    return list(reversed(path)) if path else None
+
+# Example usage:
+graph = {
+    0: [1, 2],
+    1: [0, 3],
+    2: [0, 4],
+    3: [1],
+    4: [2]
+}
+
+start_node = 0
+end_node = 4
+result = shortest_path(graph, start_node, end_node)
+
+if result:
+    print(f"Shortest path from node {start_node} to node {end_node}: {result}")
+else:
+    print("No path found between the given nodes.")
 
 
 
