@@ -13,6 +13,9 @@ if we move from 0 to 1 then it cast as one coin so you need to add 1
 """
 
 
+from collections import deque
+
+
 def coin_change(coins, amount):
     if amount == 0:
         return 0
@@ -58,5 +61,35 @@ print(coin_change_memo(coins, amount))
 
 
 # or by DFS
+"""
+                (11)
+          1/    2|   5\
+         10     9        6 ------> this level 6 is minimum
+      /  | \   /|\     / |  \
+     9   8 5  8 7 4   5  4     1 -----> this level 1 is min
+    ~     ~    ~    /|\  /|\    /|\
+                  4 3 0 1 2 -1 0 -1 -4
+
+"""
+
+
 def coinChangeDFS(coins, amount):
-    pass
+    q = deque([(amount, 0)])
+    visited = set()
+
+    while q:
+
+        remain, count = q.popleft()
+        if remain == 0:
+            return count
+        for coin in coins:
+            dif = remain - coin
+            if dif in visited or dif < 0:
+                continue
+            q.append((dif, count+1))
+            visited.add(dif)
+    return -1
+
+
+coins, amount = [1, 2, 5], 9000
+print(coinChangeDFS(coins, amount))
