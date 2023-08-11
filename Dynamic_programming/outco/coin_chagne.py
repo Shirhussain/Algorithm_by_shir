@@ -93,3 +93,19 @@ def coinChangeDFS(coins, amount):
 
 coins, amount = [1, 2, 5], 9000
 print(coinChangeDFS(coins, amount))
+
+
+# Tabulation way
+def tabulation_coin_change(coins, amount):
+    ch = [float('inf')] * (amount + 1)
+    ch[0] = 0
+
+    for i in range(1, amount + 1):
+        for coin in coins:
+            if i-coin >= 0:
+                ch[i] = min(ch[i], ch[i-coin]) + 1
+    return -1 if ch[amount] == float('inf') else ch[amount]
+
+
+coins, amount = [1, 2, 5], 11
+print(tabulation_coin_change(coins, amount))
