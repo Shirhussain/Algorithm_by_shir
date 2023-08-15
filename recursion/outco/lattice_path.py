@@ -23,6 +23,9 @@
 # (2,2) ==> Output 2: 6 (number of unique paths from top left corner to bottom right corner)
 
 
+import itertools
+
+
 def latticePaths(row, col):
     """
         I'm comming form the destination to the start like (2,2) to (0,0)
@@ -78,3 +81,72 @@ class MemoSolution(object):
 
 memo_sol = MemoSolution()
 print(memo_sol.uniquePaths(3, 7))
+
+
+def uniq_path_tabulation(m, n):
+    """
+        how it works Let's consider an example with m = 3 and n = 3.
+
+        dp after initialization:
+        [[0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]]
+
+        After filling the cell (0, 0):
+        [[1, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]]
+
+        After filling the first row and first column:
+        [[1, 1, 1],
+        [1, 0, 0],
+        [1, 0, 0]]
+
+        After filling the remaining cells:
+        [[1, 1, 1],
+        [1, 2, 3],
+        [1, 3, 6]]
+    """
+    dp = [[0 for _ in range(n)] for _ in range(m)]
+
+    for i in range(m):
+        for j in range(n):
+            if i == 0 or j == 0:
+                dp[i][j] = 1
+            else:
+                dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+    # i use (m-1) and (n-1) because index start from zero
+    return dp[m-1][n-1]
+
+
+print(uniq_path_tabulation(3, 7))
+
+
+# or with itertools
+
+def unique_path_with_itertools(m, n):
+    dp = [[0 for _ in range(n)] for _ in range(m)]
+
+    for i, j in itertools.product(range(m), range(n)):
+        dp[i][j] = 1 if i == 0 or j == 0 else dp[i-1][j] + dp[i][j-1]
+    return dp[m-1][n-1]
+
+
+print(unique_path_with_itertools(3, 7))
+
+
+def latus_path_with_start_from_one(m, n):
+    dp = [[1 for _ in range(n)] for _ in range(m)]
+    # this time i put 1 for the first row and colum by default then start from 1
+    # for i in range(1, m):
+    #     for j in range(1, n):
+    #         dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+    # return dp[m-1][n-1]
+    for i, j in itertools.product(range(1, m), range(1, n)):
+        dp[i][j] = dp[i][j-1] + dp[i-1][j]
+    return dp[m-1][n-1]
+
+
+print(latus_path_with_start_from_one(3, 7))
