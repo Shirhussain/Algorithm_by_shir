@@ -32,6 +32,29 @@
 
     more information: -->
     https://docs.google.com/document/d/1JaYYuTtXCSAuCqoZnyfIe8sHGW9iY4-_eSIffENHnKU/edit
+    
+    
+    [4, 1, 2, 3, 7]
+    F(0) = costs[0]
+    F(1) = max(costs[0], costs[1])
+    F(2) = here we need to decide if we are going to include ith index it means (2) index
+        as well or not 
+        if it's not included F2 = F(1)
+        if it's included F2 = F(0) + costs[2]
+        
+    F(3) = if not included  F(3) = F(2)
+            if included F(3) = F(1) + costs[3]
+            
+    F(4) = not included F(4) = F(3)
+            included F(4) = F(2) + costs[4)
+    
+    
+                                [4, 1, 2, 3, 7]
+                                    F(i)
+                                /         \
+                            f(i-1)       f(i-2) + costs(i)
+                            
+                            
 """
 
 
@@ -46,3 +69,47 @@ def max_paint(costs):
 
 
 print(max_paint([4, 1, 2, 3, 7]))
+
+
+def max_point_cost(costs):
+    def helper(i):
+        if i == 0:
+            return costs[0]
+        if i == 1:
+            return max(costs[0], costs[1])
+        return max(helper(i-1), helper(i-2)+costs[i])
+    return helper(len(costs)-1)
+
+
+lst = [4, 1, 2, 3, 7]
+print(max_point_cost(lst))
+
+
+def max_point_cost_memo(costs):
+    def helper(i):
+        map = {}
+        if i in map:
+            return map[i]
+        if i == 0:
+            result = costs[0]
+        elif i == 1:
+            result = max(costs[0], costs[1])
+        else:
+            result = max(costs[i-1], costs[i-2] + costs[i])
+        map[i] = result
+    return helper(len(costs)-1)
+
+
+print(max_point_cost(lst))
+
+
+def max_point_cost_with_dp(costs):
+    dp = [0] * len(costs)
+    dp[0] = costs[0]
+    dp[1] = max(costs[1], costs[0])
+    for i in range(2, len(costs)):
+        dp[i] = max(dp[i-1], dp[i-2] + costs[i])
+    return dp[len(costs)-1]
+
+
+print(max_point_cost_with_dp(lst))
