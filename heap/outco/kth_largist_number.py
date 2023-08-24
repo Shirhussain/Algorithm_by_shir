@@ -34,3 +34,20 @@ def find_kth_largest_element(nums, k):
 
 nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
 print(find_kth_largest_element(nums, 4))
+
+
+def kthl(arr, k):
+    minh = []
+    for i in range(k):
+        heapq.heappush(minh, arr[i])
+
+    for i in range(k, len(arr)):
+        if arr[i] > minh[0]:
+            heapq.heappop(minh)
+            heapq.heappush(minh, arr[i])
+    return minh[0]
+
+
+nums = [3, 2, 3, 1, 2, 4, 5, 5, 6]
+k = 4
+print(kthl(nums, k))
