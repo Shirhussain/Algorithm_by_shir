@@ -24,16 +24,38 @@ def best_sum(nums, target):
     elif target < 0:
         return
 
-    result = []
+    shortest_path = None
     for num in nums:
         remain_target = best_sum(nums, target-num)
-        result.extend(remain_target)
-        result.append(num)
 
-        if len(result[-1]) > len(result[0]):
-            result[0] = result[-1]
-        return result[0]
-    return None
+        if remain_target is not None:
+            curr_path = [num] + remain_target
+            if shortest_path is None or len(curr_path) < len(shortest_path):
+                shortest_path = curr_path
+
+    return shortest_path
 
 
 print(best_sum([2, 3, 5], 8))
+print(best_sum([5, 4, 3, 7], 7))
+# print(best_sum([1, 2, 5, 25], 100))
+
+
+def best_sum_memo(nums, target):
+    if target == 0:
+        return []
+    if target < 0:
+        return
+
+    shortest_path = None
+    for num in nums:
+        remain_target = best_sum_memo(nums, target-num)
+        if remain_target is not None:
+            curr_path = [num] + remain_target
+            if shortest_path is None or len(curr_path) < len(shortest_path):
+                shortest_path = curr_path
+    return shortest_path
+
+
+print(best_sum_memo([2, 3, 5], 8))
+print(best_sum_memo([5, 4, 3, 7], 7))
