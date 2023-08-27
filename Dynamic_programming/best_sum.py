@@ -41,7 +41,10 @@ print(best_sum([5, 4, 3, 7], 7))
 # print(best_sum([1, 2, 5, 25], 100))
 
 
-def best_sum_memo(nums, target):
+def best_sum_memo(nums, target, memo={}):
+    if target in memo:
+        return memo[target]
+
     if target == 0:
         return []
     if target < 0:
@@ -49,13 +52,17 @@ def best_sum_memo(nums, target):
 
     shortest_path = None
     for num in nums:
-        remain_target = best_sum_memo(nums, target-num)
+        remain_target = best_sum_memo(nums, target-num, memo)
+        memo
         if remain_target is not None:
             curr_path = [num] + remain_target
             if shortest_path is None or len(curr_path) < len(shortest_path):
                 shortest_path = curr_path
+                # memo[target] = curr_path
+    memo[target] = shortest_path
     return shortest_path
 
 
 print(best_sum_memo([2, 3, 5], 8))
 print(best_sum_memo([5, 4, 3, 7], 7))
+print(best_sum_memo([1, 2, 5, 25], 100))
