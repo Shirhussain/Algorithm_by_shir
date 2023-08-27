@@ -109,3 +109,67 @@ def tabulation_coin_change(coins, amount):
 
 coins, amount = [1, 2, 5], 11
 print(tabulation_coin_change(coins, amount))
+
+
+"""
+    amount = 5
+    coins = [1,2,4]                     
+                                        amount [coins]
+                                            5 [1,2,4]
+                                        -4/              \ remove 4 
+                                        1[1,2,4]          5[1,2]
+                                    -4/   \ remove 4       /      \
+                                -3[1,2,4]  1[1,2]        3[1,2]   5[1]
+                                
+                                and so on --> if amount become negative return 0
+                                if coins become zero and amount becomes zero then return 1
+                                        
+"""
+
+
+def coin_change_way(amount, coins):
+    # find how ways exist
+
+    def find_ways(total, coins):
+        if total < 0:
+            return 0
+        if len(coins) == 0:
+            return 0 if total > 0 else 1
+
+        left = find_ways(total-coins[-1], coins)
+
+        # backtrack last coin
+        popped = coins.pop()
+        right = find_ways(total, coins)
+        # for back tracking you need to push back the popped coin
+        coins.append(popped)
+        return left + right
+
+    return find_ways(amount, coins)
+
+
+print(coin_change_way(5, [1, 2, 4]))
+
+
+def coin_change_way_memo(amount, coins):
+    cash = {}
+
+    def ways(total, coins):
+        if total < 0:
+            return 0
+        if len(coins) == 0:
+            return 0 if total > 0 else 1
+
+        left = ways(total-coins[-1], coins)
+        # pop the last coins and backtrack
+        popped = coins.pop()
+
+        right = ways(total, coins)
+
+        # add backtracking popped
+        coins.append(popped)
+        return left + right
+    return ways(amount, coins)
+
+
+print(coin_change_way_memo(5, [1, 2, 4]))
