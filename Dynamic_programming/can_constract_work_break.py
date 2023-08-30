@@ -48,3 +48,47 @@ solution is:
                     "d"   ""     ""         "" 
                     
 """
+
+
+def can_construct(target, word_bank):
+    if target == "":
+        return True
+
+    for word in word_bank:
+        if target.startswith(word):
+            suffix = target[len(word):]
+            if can_construct(suffix, word_bank):
+                return True
+    return False
+
+
+print(can_construct("abcdef", ["ab", "abc", "cd", "def", "abcd"]))
+print(can_construct("skateboard", [
+      "bo", "rd", "ate", "t", "ska", "skk", "board"]))
+
+# print(can_construct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeT", [
+#       "e", "ee", "eee", "ef"]))
+
+
+def can_construct_memo(target, word_banks, memo={}):
+    if target in memo:
+        return memo[target]
+
+    if target == "":
+        return True
+    for word in word_banks:
+        if target.startswith(word):
+            suffix = target[len(word):]
+            if can_construct_memo(suffix, word_banks, memo):
+                memo[target] = True
+                return True
+    memo[target] = False
+    return False
+
+
+print(can_construct_memo("abcdef", ["ab", "abc", "cd", "def", "abcd"]))
+print(can_construct_memo("skateboard", [
+      "bo", "rd", "ate", "t", "ska", "skk", "board"]))
+
+print(can_construct_memo("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeT", [
+      "e", "ee", "eee", "ef"]))
