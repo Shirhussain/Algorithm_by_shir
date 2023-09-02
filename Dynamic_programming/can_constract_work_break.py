@@ -47,6 +47,15 @@ solution is:
                     c/   cd|    d|         d| 
                     "d"   ""     ""         "" 
                     
+                    
+                    #or 
+                    
+                    
+                                            "abcdef"
+                                        ab/    abc|    abcd\
+                                    cdef         def        ef 
+                                     cd|         def|       
+                                       ef           ""
 """
 
 
