@@ -55,15 +55,15 @@ print(letterCasePermutation("a1b2"))
 def letterCasePermutation_swapCase(s):
     result = []
 
-    def helper(substr="", i=0):
+    def backtrack(substr="", i=0):
         if len(substr) == len(s):
             result.append(substr)
         else:
             if s[i].isalpha():
-                helper(substr+s[i].swapcase(), i+1)
-            helper(substr+s[i], i+1)
+                backtrack(substr+s[i].swapcase(), i+1)
+            backtrack(substr+s[i], i+1)
 
-    helper()
+    backtrack()
     return result
 
 
