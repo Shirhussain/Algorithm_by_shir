@@ -84,3 +84,64 @@ sliding_window(input sequence)
       increment left
       
 '''
+
+
+def minWindow(s: str, t: str) -> str:
+    if t == "":
+        return ""
+    countT, window = {}, {}
+    for c in t:
+        countT[c] = 1 + countT.get(c, 0)
+    have, need = 0, len(countT)
+    # this is a default value for result it's a pointer like [l,r]
+    # but i give a -1 as defualt also for eresult too
+    result, len_result = [-1, -1], float("infinity")
+    l = 0
+    for r in range(len(s)):
+        c = s[r]
+        window[c] = 1 + window.get(c, 0)
+        if c in countT and window[c] == countT[c]:
+            have += 1
+        while have == need:
+            # update our result
+            # update window < len_result
+            if (r-l + 1) < len_result:
+                result = [l, r]
+                len_result = (r-l+1)
+
+            # pop from left of the window
+            window[s[l]] -= 1
+            if s[l] in countT and window[s[l]] < countT[s[l]]:
+                have -= 1
+            l += 1
+    l, r = result
+    return s[l: r+1] if len_result != float("infinity") else ""
+
+    # if len(s) < len(t):
+    #     return ""
+    # if s== t:
+    #     return s
+    # result = []
+    # for i in range(len(s)):
+    #     for j in range(i,len(s)):
+    #         count = Counter(t)
+    #         for n in t:
+
+    #             if n in s[i:j+1]:
+    #                 count[n] -=1
+    #                 print(count, s[i:j+1])
+
+    #         if count.most_common()[0][1] == 0:
+
+    #             result.append(s[i:j+1])
+    #         # if count >= len(t) and len(s[i:j+1]) >= len(t):
+    #         #     result.append(s[i:j+1])
+    # print(result)
+    # if result:
+    #     return min(result, key=len)
+    # return ""
+
+
+s = "ADOBECODEBANC"
+t = "ABC"
+print(minWindow(s, t))
