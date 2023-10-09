@@ -86,6 +86,9 @@ sliding_window(input sequence)
 '''
 
 
+
+
+from collections import Counter
 def minWindow(s: str, t: str) -> str:
     if t == "":
         return ""
@@ -117,31 +120,34 @@ def minWindow(s: str, t: str) -> str:
     l, r = result
     return s[l: r+1] if len_result != float("infinity") else ""
 
-    # if len(s) < len(t):
-    #     return ""
-    # if s== t:
-    #     return s
-    # result = []
-    # for i in range(len(s)):
-    #     for j in range(i,len(s)):
-    #         count = Counter(t)
-    #         for n in t:
 
-    #             if n in s[i:j+1]:
-    #                 count[n] -=1
-    #                 print(count, s[i:j+1])
+# def minimum_window_sub_str(s, t):
+#     if len(s) < len(t):
+#         return ""
+#     if s == t:
+#         return s
+#     result = []
+#     for i in range(len(s)):
+#         for j in range(i, len(s)):
+#             count = Counter(t)
+#             for n in t:
 
-    #         if count.most_common()[0][1] == 0:
+#                 if n in s[i:j+1]:
+#                     count[n] -= 1
+#                     print(count, s[i:j+1])
 
-    #             result.append(s[i:j+1])
-    #         # if count >= len(t) and len(s[i:j+1]) >= len(t):
-    #         #     result.append(s[i:j+1])
-    # print(result)
-    # if result:
-    #     return min(result, key=len)
-    # return ""
+#             if count.most_common()[0][1] == 0:
+
+#                 result.append(s[i:j+1])
+#             # if count >= len(t) and len(s[i:j+1]) >= len(t):
+#             #     result.append(s[i:j+1])
+#     print(result)
+#     if result:
+#         return min(result, key=len)
+#     return ""
 
 
 s = "ADOBECODEBANC"
 t = "ABC"
 print(minWindow(s, t))
+# print(minimum_window_sub_str(s, t))
