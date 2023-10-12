@@ -1,0 +1,183 @@
+1. Stay confident and take the lead in the conversation
+
+Topic: Design an autocomplete feature
+
+
+- Step 1: Clarifying questions:
+    Is it for search? yes
+    Common search terms
+    Database of the terms: yes, but you should design it!
+    What is the order: sorted by popularity
+    Return words, but we could discuss extending to terms
+    Do we want photos? Optional
+    Typo fix? Optional
+    There should also be a button for the actual search
+    1B DAU
+    
+    
+    
+
+2. Agree on the requirements with the interviewer
+
+Step 2: Requirements:
+   F.R
+     1. The user should receive 10 suggestions for each prefix that they type
+     2. The results should be sorted by the popularity of those terms
+     3. Maybe return only the terms in the last year/month/day.
+     4. Assume the popularity is given to you.
+     5. No Personalization?
+
+
+   N.F.R (Scalability, availability, durability, reliability, consistency, latency, security)
+     1. 1B DAU (Scalable)
+     2. Consistency: it should return correct results, 
+            should be the same for everyone that uses this system
+           Eventually (should be the same for everyone that uses this system)
+     3. Latency: 50 - 200 ms
+
+I can use option 1, or option 2. Here are pros and cons. Let's pick option k, and agree with the interviewr
+
+3. When in doubt, provide range
+
+4. Be done with writing the requirements in the first 5-10 minutes.
+
+Step 3:
+
+    API Design, Protcol, and Data model
+        
+
+5. From this point on, whatever you say should be limited to the requirements
+
+REST/GET: GetSuggestions(string query, Interval timeInterval) -> List<String>
+
+POST: is for creating something
+GET: for getting something
+PUT: update/create
+
+Search(string query) -> List <String>
+
+Data model
+ - Key, value trie?
+
+C:[CAT, COTTON, CAR, CERAMIC, CAP, ...]
+
+A:[CAT,CAR, CAP, ...]
+
+O
+
+T
+
+N
+
+I
+
+P
+
+Query: O(Size(query))
+
+Option 2: key, value database
+
+    Query runtime: O(1)
+
+C:[CAT, COTTON, CAR, CERAMIC, CAP, ...]
+
+CA:[CAT,CAR, CAP, ...]
+
+Already available out of the box
+
+I have to maintain myself :(
+
+Sharding/Replication, fault tolerance
+
+CAT:[CAT,CATNIP, ...]
+
+Step 4:
+    Diagraming
+
+
+Auto 
+complete
+
+Auto 
+complete 
+Database
+
+cache
+
+client
+
+Search
+
+Search 
+Database
+
+Step 5: 
+
+Step 2: Requirements:
+   F.R
+     1. The user should receive 10 suggestions for each prefix that they type
+     2. The results should be sorted by the popularity of those terms
+     3. Maybe return only the terms in the last year/month/day.
+     4. Assume the popularity is given to you.
+     5. No Personalization?
+
+
+   N.F.R (Scalability, availability, durability, reliability, consistency, latency, security)
+     1. 1B DAU (Scalable)
+     2. Consistency: it should return correct results, 
+            should be the same for everyone that uses this system
+           Eventually (should be the same for everyone that uses this system)
+     3. Latency: 50 - 200 ms
+
+Log
+
+Map 
+Reduce
+
+Day
+Week
+Year
+Alltime
+
+REST/GET: GetSuggestions(string query, Interval timeInterval) -> List<String>
+
+Address remaining requirements, usually N.F ones!
+
+Auto 
+complete
+
+Auto 
+complete
+
+Search
+
+Search
+
+LB
+
+LB
+
+Auto 
+complete 
+Database
+
+Search 
+Database
+
+Sharding
+
+Sharding
+
+QPS calculation
+
+1B DAU
+
+each user performs 50 searches a day and 2 autocomplete per search
+
+QPS= 1B*50*2 / 100K = 1M QPS
+
+Spikes?
+
+10K QPS
+
+Cache
