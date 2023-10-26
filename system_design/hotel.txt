@@ -1,0 +1,180 @@
+https://excalidraw.com/#room=1f9a8ce3eb2d4028c303,iyUh85tfAJdsk-OJ8XAgSA
+
+Uber v.s. Airbnb: booking system
+
+Hotel Booking System
+
+Functional Req:
+
+User can book a reservation
+they can select room type: 1B, 2B, bed type
+they can search based on dates and price, location
+users can cancel their reservations
+handling booking for certain period: scale, pricing
+hotel room prices changing daily
+allow double booking?
+show or no-show
+
+people can view room availability by date
+view the details of a room, including amenities 
+
+payment service
+API to 3rd party
+
+write
+
+Read
+
+Uber
+
+
+
+Non-functional
+
+scalability (efficiency)
+spikiness, spiky
+availability
+consistency
+reliability
+durability
+latency: 0s
+fairness
+
+
+
+
+Capacity
+
+read v.s. write
+
+view/search v.s. booking
+
+100M users per day
+100M bookings a day
+
+TPS, transaction per second
+100 0 TPS
+
+1000 TPS  = *10 = 10K
+
+1K TPS 
+
+user-generated data
+
+machine generated data
+
+Data store
+
+relational DB
+
+user table
+user ID
+name
+
+room table
+room ID
+hotelID
+images
+desciption
+
+
+booking/reservation table
+
+booking ID
+reservation datetime
+checkin datetime
+checkout datetime
+
+price
+userID
+hotelID/roomID
+
+Status : pending payment, paid, cancelled
+
+
+Hotel table
+hotel ID
+hotel location
+
+rooms
+
+
+pricing table
+ID
+hotelID
+room type
+price
+date
+
+inventory table
+
+hotel ID
+room type
+date
+total inventory
+remaining inventory - 1
+
+Saga Orchestration
+
+Reserve hotel inventory
+
+payment service
+
+notification/confirmation
+
+cancellation 
+service
+
+decrement the inventory
+
+TTL (5 mins to pay)
+
+create an entry in reservation table
+
+create an entry in payment table
+
+payment table
+
+reservaition
+
+credit card #
+...
+
+send emaill confirmation
+
+
+half refund, full refund
+
+2
+
+1
+
+5 inventory total
+0 remaining 
+5 pending payments
+6th person can still come in
+6 pending payments, 4 made the payment 
+
+Flash sale
+
+local transactions
+
+event
+
+roll back
+
+1$ room
+
+10 rooms 
+
+1M people 
+
+1. Kill traffic ASAP, let only 100 people come in, rate limitint
+2. use read-replica
+3. use cache: memcached 1M QPS
+4. use message queue, kafka
+5. sharding
+
+10 TPS
+
+6. delay expensive transactions in saga
