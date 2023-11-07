@@ -1,0 +1,65 @@
+
+What are some indicators I should use a Tree to solve a problem?
+
+- It says "tree" in the problem description
+- Recursive w/nodes (might be a graph, might be a tree)
+- Nested data: hierarchy, XML/HTML
+- Heapsort is a tree-oriented sort
+- Binary search tree
+
+How do I solve a Tree problem?
+
+- Depth-first search (DFS)
+  -- Pre-order: "process" the parent first
+        Searching for path from root to something
+  -- Post-order: "process" the parent after both children
+        Need to "bubble up" (pull) information from the children
+  -- Inorder: "process" the parent after the left child, before the right child
+        Represents a left-to-right reading of the leaves
+
+- Breadth-first search (BFS)
+  -- top-down, left-to-right
+  -- Good for processing level-by-level
+  -- Finding shortest path to a leaf, for instance
+
+Write a template for a recursive DFS tree traversal
+
+preorder(node, path):
+  if node is empty
+    return
+  visit(node)
+  add to path
+  preorder(node.left, new path)
+  preorder(node.right, new path)
+  revert to original path
+
+postorder(node):
+  if node is empty
+    return
+  left_val = postorder(node.left)
+  right_val = postorder(node.right)
+  return visit(node)
+  
+inorder(node):
+  if node is empty
+    return
+  inorder(node.left)
+  visit(node)
+  inorder(node.right)
+
+Write a template for an iterative BFS or DFS tree traversal
+
+bfs(node):
+  create a queue
+  push node onto queue
+  while queue is not empty
+     remove new_node from the front of the queue
+     visit(new_node)
+     push left and right children of new_node onto the queue
+
+What is the runtime & space complexity of a Tree Traversal?
+
+Time: O(# of nodes visited)
+DFS Space: O(max depth of tree) 
+BFS Space: O(max width of tree)
+
