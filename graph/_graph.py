@@ -38,8 +38,8 @@ print(graph.graph_dict['e'])
 
 
 
-	1.	Question: Find if a graph is a tree or not.
-Solution: A graph is a tree if it is acyclic (no cycles) and has exactly N-1 edges, where N is the number of nodes.
+# 	1.	Question: Find if a graph is a tree or not.
+# Solution: A graph is a tree if it is acyclic (no cycles) and has exactly N-1 edges, where N is the number of nodes.
 
 
 def is_tree(graph):
@@ -71,7 +71,7 @@ graph = {
 print(is_tree(graph))  # Output: True
 
 
-or 
+# or 
 
 
 
@@ -95,7 +95,7 @@ print(is_tree(graph))  # Output: True
 
 
 
-shortest path 
+# shortest path 
 
 
 from collections import deque
@@ -140,7 +140,7 @@ else:
     print("No path found between the given nodes.")
 
 
-or for DFS
+# or for DFS
 
 
 def shortest_path(graph, start, end):
