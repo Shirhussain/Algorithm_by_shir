@@ -56,6 +56,8 @@ print(unique_path(3, 7))
 #     #     /    \        /    \
 #     # (2, 0)    (1,1) (1, 1)  (0, 2)
 
+# or vise versa from to to bottom form (m, n) to 0
+
 #     if m < 0 or n < 0:
 #         return
 #     if m == 0 and n == 0:
@@ -79,9 +81,56 @@ def unique_path_tree(m, n):
             return 1
         memo[(row, col)] = find_path(row-1, col) + find_path(row, col-1)
         return memo[(row, col)]
-    return find_path(m-1, n-1)
+    return find_path(m, n)
 
 
 # Example usage
 result = unique_path_tree(3, 7)
 print(result)
+
+
+def unique_path_tree2(m, n):
+
+    def my_path(row, col):
+        if row == m - 1 or col == n - 1:
+            return 1
+        return my_path(row + 1, col) + my_path(row, col + 1)
+    return my_path(0, 0)
+
+
+print(unique_path_tree2(3, 7))
+
+
+def unique_path_tree2_memo(m, n):
+    memo = {}
+
+    def m_path(row, col):
+        if (row, col) in memo:
+            return memo[(row, col)]
+
+        if row == m-1 or col == n-1:
+            memo[(row, col)] = 1
+            return 1
+        memo[(row, col)] = m_path(row+1, col) + m_path(row, col+1)
+        return memo[(row, col)]
+    return m_path(0, 0)
+
+
+print(unique_path_tree2_memo(3, 7))
+
+
+def unique_path_tree2_memo_2(m, n):
+
+    def m_path(row, col, memo={}):
+        if (row, col) in memo:
+            return memo[(row, col)]
+
+        if row == m-1 or col == n-1:
+            memo[(row, col)] = 1
+            return 1
+        memo[(row, col)] = m_path(row+1, col, memo) + m_path(row, col+1, memo)
+        return memo[(row, col)]
+    return m_path(0, 0)
+
+
+print(unique_path_tree2_memo_2(3, 7))
