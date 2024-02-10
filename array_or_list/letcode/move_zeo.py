@@ -27,6 +27,20 @@ def move_zero(nums):
     return nums
 
 
+def move_zero_2(nums):
+    j = 0
+    for num in nums:
+        if nums[j] != 0:
+            j += 1
+        else:
+            nums[j] = num
+
+    for k in range(j, len(nums)):
+        nums[k] = 0
+    return nums
+
+
 nums = [0, 1, 0, 3, 12]
 nums = [0, 1, 0]
 print(move_zero(nums))
+print(move_zero_2(nums))

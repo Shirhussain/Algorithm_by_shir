@@ -21,6 +21,10 @@
 # 3. Down -> Right -> Down
 
 
+from collections import deque
+import collections
+
+
 def unique_path(m, n):
     # dp = []
     # for i in range(m):
@@ -134,3 +138,10 @@ def unique_path_tree2_memo_2(m, n):
 
 
 print(unique_path_tree2_memo_2(3, 7))
+
+
+#     #             (0,0)
+#     #         /          \
+#     #        (1,0)         (0,1)
+#     #     /    \        /    \
+#     # (2, 0)    (1,1) (1, 1)  (0, 2)
