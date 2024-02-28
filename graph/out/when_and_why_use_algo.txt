@@ -1,0 +1,175 @@
+
+when ot use which Algorithms:
+Shortest Path Algorithms;
+    No Weights (BFS) [O(V +E)]
+    non-negative weights (Dijkstra) [O ( V + Elog V)]
+
+    negative cycles (Bellman Ford) [O( VE)] ~V^3
+
+    negative weights (Floyd Warshall) [O(V^3)]
+
+
+Graphs:
+
+Any question that talks about pairs of points.
+
+
+Graph = { node1: {values}, node2: {values}.....}
+
+
+
+Graph = { "a" : {c, d},
+            "b": {c},
+            "c" : {a, b, d, e|},
+            "d" : {a, c}, 
+            "e" : {c}
+        }
+
+Is c a neighbor of d:
+if c in Graph["d"]:
+    return "YES"
+else:
+    return "NO"
+
+1) BFS
+2) DFS
+
+def bfs_graph(Graph, start, end):
+    queue = [start]
+    result = []
+    visited_set = set()
+    while(queue is not empty):
+        current_node = queue.pop()
+        
+        for children in Graph[current_node]:
+             if children not in visited:
+                 queue.append(children)
+
+        visited.add(current_node)
+        result.append(current_node)
+
+queue = [ d, a, b, d, e]
+
+result = [a, c]
+
+O(V + E)
+
+DC
+
+NYC
+
+Phill
+y
+
+Tor
+onto
+
+LA
+
+SF
+
+
+Goal: Shortest Path from DC -> SF (DC -> NYC -> Philly > Toronto -> SF) [8]
+
+node
+
+distance
+
+parent
+
+DC*
+
+NYC*
+
+LA*
+
+Philly*
+
+Toronto*
+
+SF
+
+NULL
+
+DC
+
+DC
+
+Philly
+
+NYC
+
+Toronto
+
+SF -> Toronto -> Philly -> NYC -> DC
+
+V + E
+
+V + ElogV
+
+-2
+
+-1
+
+A
+
+B
+
+-5
+
+Floyd-Warshall:
+Input: Graph
+Output: Matrix which has the shortest between all (i,j)  in graph
+
+O(V^3)
+
+V*(V + Elog V)
+
+O(VElogV)
+O(V^3 log V)
+
+for (i, j) in Graph:
+    dist[i,j] = weight[i][j]
+
+dist[i][i] = 0
+
+
+for k = 1 -> V
+    for i = 1 -> V
+        for j = 1 -> V;
+            if dist[i,j] > dist[i,k] + dist[k,j]:
+                dist[i,j] = dist[i,k] + dist[k,j]
+        
+
+
+shortest path from i->j
+{1,...k-1}  
+
+node k do i get a shorter path
+
+Shortest Path Algorithms;
+    No Weights (BFS) [O(V +E)]
+    non-negative weights (Dijkstra) [O ( V + Elog V)]
+
+    negative cycles (Bellman Ford) [O( VE)] ~V^3
+
+    negative weights (Floyd Warshall) [O(V^3)]
+
+(All pairs shortest Path)
+
+(source-destination path)
+
+and dist[i,l] + dist[k,j] < treshold:
+
+Input: equations = [["a","b"],["b","c"]], values = [2.0,3.0], queries = [["a","c"],["b","a"],["a","e"],["a","a"],["x","x"]]
+Output: [6.00000,0.50000,-1.00000,1.00000,-1.00000]
+
+a/b = 2.0
+
+b/c = 3.0       
+c/d = 4.0
+d/e = 5
+c/e = 20
+a/e
+
+e/a =??
