@@ -39,7 +39,7 @@ class Node:
             self.print_node(child, indent="    - ")
 
 
-def in_order_traverse(node):
+def pre_order_traverse(node):
     def helper(node, level=0):
         if level == 0:
             print(node.value)
@@ -67,4 +67,4 @@ html_format = Node('html', [
 # node = Node()
 # result = node.print_node(html_format)
 
-in_order_traverse(html_format)
+pre_order_traverse(html_format)
