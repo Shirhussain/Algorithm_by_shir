@@ -12,12 +12,13 @@
 # Input: nums = [2,2,1,1,1,2,2]
 # Output: 2
 
-from collections import Counter 
+from collections import Counter
 
-def majority_element(nums) -> int: 
+
+def majority_element(nums) -> int:
     counter = Counter(nums)
     print(counter)
 
 
-numbers = [0, 2,2,1,1,1,2,2]
+numbers = [0, 2, 2, 1, 1, 1, 2, 2]
 print(majority_element(numbers))
