@@ -30,3 +30,28 @@ class Car:
 engine = Engine("2000Hors")
 car = Car("Toyota high brid ", engine)
 print(car.start_car())
+
+
+# A House has multiple Rooms (like Bedroom, Kitchen, Bathroom), which form the house's structu
+
+class Room:
+    def __init__(self, name, area):
+        self.name = name
+        self.area = area
+
+
+class House:
+    def __init__(self, address):
+        self.address = address
+        self.rooms = []
+
+    def add_room(self, room):
+        return self.rooms.append(room)
+
+
+house = House("123 Maple Street")
+bedroom = Room("Bedroom", 200)
+kitchen = Room("Kitchen", 150)
+house.add_room(bedroom)
+house.add_room(kitchen)
+print([(room.name, room.area) for room in house.rooms])
