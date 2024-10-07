@@ -55,3 +55,33 @@ kitchen = Room("Kitchen", 150)
 house.add_room(bedroom)
 house.add_room(kitchen)
 print([(room.name, room.area) for room in house.rooms])
+
+
+# A Car class can contain instances of other classes like Engine, Transmission, and Wheel.
+# Each component contributes to the functionality of the car.
+
+
+class Engine:
+    def __init__(self, horsepower):
+        self.horsepower = horsepower  # This defines the 'horsepower' attribute
+
+
+class Transmission:
+    def __init__(self, type):
+        self.type = type
+
+
+class Car:
+    def __init__(self, name, engine, transmission):
+        self.name = name
+        self.engine = engine
+        self.transmission = transmission
+
+
+engine = Engine(2000)
+transmission = Transmission('Automatic')
+car = Car("Toyota corolla hybrid", engine, transmission)
+
+print(car.name)  # Toyota corolla hybrid
+print(car.transmission.type)  # Automatic
+print(car.engine.horsepower)  # Output: 2000
