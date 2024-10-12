@@ -31,6 +31,7 @@ Output: []
 
 """
 
+import heapq
 from merge_two_sorted_list import merge_sorted_list
 
 
