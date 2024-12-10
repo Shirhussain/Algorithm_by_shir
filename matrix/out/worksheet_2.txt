@@ -1,0 +1,39 @@
+How do I know that I should be using a Matrix solution?
+
+- The shape of the data (rectangular)
+- "Matrix"
+
+How do I solve a matrix problem?
+
+- Matrices are a form of graph
+  -- So often we can use graph algorithms, such as DFS and BFS
+- Sometimes we can use simple nested for loops
+- Sometimes geometric properties are important
+
+Write a template for backtracking on a matrix
+
+backtrack(matrix, next_node)
+
+  if next_node is outside the matrix
+     return true
+  for digits 1 through 9
+     set matrix[next_node] to digit
+     if valid_soduku(matrix) then
+        if backtrack(matrix, new next_node) return true
+  set matrix[next_node] to '.'
+  return false
+   
+
+
+
+What is the runtime and space complexity of a Matrix traversal 
+(nested loop) algorithm?
+
+Time: N*M
+Space: size of output
+
+What is the runtime and space complexity of a Matrix backtracking algorithm?
+
+Time: 4^(N*M)
+Space: N*M + size of output
+
