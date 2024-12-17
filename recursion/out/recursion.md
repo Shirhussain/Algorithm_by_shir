@@ -1,6 +1,9 @@
 # Recursion
 
-<!-- https://docs.google.com/document/d/1Uhnldz90UuZU5vDdVRAQgV49aKyR7ieafbmJTrVAH0U/edit?usp=sharing -->
+https://docs.google.com/document/d/1Uhnldz90UuZU5vDdVRAQgV49aKyR7ieafbmJTrVAH0U/edit?usp=sharing
+
+or
+https://docs.google.com/document/d/1HZtIlnpl6SSa_StD3uZSyzLPrGMa6O_ojtrqSWQsgvM/edit?usp=sharing
 
 ## When are some indicators I should use recursion?
 
