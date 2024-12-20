@@ -1,3 +1,5 @@
+https://docs.google.com/document/d/1lA0-lfkrG9KVk88mgJtHnlrPpTVlVoOlSkOawfJXzrA/edit?usp=sharing
+
 What are some indicators I should use dynamic Programming?
 
 - Repeated work.
