@@ -1,4 +1,5 @@
 first read this: https://docs.google.com/document/d/1gb3HGTzR770yV3kLLhlmkLr4JiIs6MM_Oo50Lk3US9A/edit?usp=sharing
+and this: https://docs.google.com/document/d/1jBbwsQ09DtSlqzm13D2Bhwz2K4T1x4zmPSfiWs0F16w/edit?usp=sharing
 
 # How do I solve a recursion problem Systematically?
 
