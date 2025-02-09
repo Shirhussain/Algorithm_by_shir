@@ -1,4 +1,4 @@
-
+""" 
 Graphs
 What is a graph?
 A graph has two things:
@@ -84,6 +84,10 @@ Matching problems
 Obvious Problems which are defined on graphs: e.g minimum spanning tree.
 .
 Write a template for a recursive DFS graph traversal
+"""
+
+
+from collections import deque
 
 
 def dfs(graph, node, visited):
@@ -97,7 +101,7 @@ def dfs(graph, node, visited):
         dfs(graph, neighbor, visited)
 
 
-Write a template for an iterative BFS or DFS graph traversal
+# Write a template for an iterative BFS or DFS graph traversal
 
 
 def bfs(graph, start):
@@ -114,13 +118,13 @@ def bfs(graph, start):
                 queue.append(neighbor)  # Enqueue neighbor
 
 
-What is the runtime & space complexity of a Graph Traversal?
+# What is the runtime & space complexity of a Graph Traversal?
 
 
-Problem 1:
-https: // leetcode.com/problems/number-of-islands/submissions/1531817367
+# Problem 1:
+# https: // leetcode.com/problems/number-of-islands/submissions/1531817367
 
-Problem 2:
+# Problem 2:
 '''
 Input: numCourses = 2, prerequisites = [[1,0]]
 
