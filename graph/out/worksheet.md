@@ -1,3 +1,5 @@
+read this once: https://www.cs.princeton.edu/~wayne/kleinberg-tardos/
+
 https://docs.google.com/document/d/12VirIjRy5VqQqBwRD2trhHwPfVN84XQ1_ijQo4ryCDU/edit?usp=sharing
 
 https://docs.google.com/document/d/1GD4PJFtNePP5pfOhgI-oVcS5wBoPqwmN0DbGAD5NW3M/edit?usp=sharing
