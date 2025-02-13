@@ -61,7 +61,7 @@ def kClosest(points, k):
             # We could remove this if statement too!
             if distance(point) < -maxHeap[0][0]:
                 heappushpop(maxHeap, (-distance(point), point))
-    return [point[1] for point in maxHeap]
+    return [e[1] for e in maxHeap]
 
 
 points = [[3, 3], [5, -1], [-2, 4]]
