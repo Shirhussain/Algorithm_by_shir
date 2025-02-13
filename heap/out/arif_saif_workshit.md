@@ -1,5 +1,7 @@
 the full detail is in https://docs.google.com/document/d/1Pywez4fFN1L7hysgrPwsNKpd5QNKXMgYGCTpg_D7-0E/edit?usp=sharing
 
+https://docs.google.com/document/d/1LIKP68y9G63u6LH_Q_495D7DjEm6qdrPY7hTvceCNxE/edit?usp=sharing
+
 Heap
 What is a min heap?
 It’s a complete binary tree.
