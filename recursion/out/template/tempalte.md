@@ -1,6 +1,8 @@
 first read this: https://docs.google.com/document/d/1gb3HGTzR770yV3kLLhlmkLr4JiIs6MM_Oo50Lk3US9A/edit?usp=sharing
 and this: https://docs.google.com/document/d/1jBbwsQ09DtSlqzm13D2Bhwz2K4T1x4zmPSfiWs0F16w/edit?usp=sharing
 
+https://docs.google.com/document/d/1P3_MhWN72mUJIcGKpPU7Noimn9ErqxPSvWrB78RsgXI/edit?usp=sharing
+
 # How do I solve a recursion problem Systematically?
 
 You should answer the following questions:
