@@ -65,6 +65,7 @@ class Solution:
 
         # Validate rows
         for i in range(9):
+            # clear the set for each row
             curr_value.clear()
             for j in range(9):
                 if board[i][j] in curr_value:
@@ -74,6 +75,7 @@ class Solution:
 
         # Validate columns
         for j in range(9):
+            # clear the set for each column
             curr_value.clear()
             for i in range(9):
                 if board[i][j] in curr_value:
