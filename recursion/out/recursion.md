@@ -5,6 +5,10 @@ https://docs.google.com/document/d/1Uhnldz90UuZU5vDdVRAQgV49aKyR7ieafbmJTrVAH0U/
 or
 https://docs.google.com/document/d/1HZtIlnpl6SSa_StD3uZSyzLPrGMa6O_ojtrqSWQsgvM/edit?usp=sharing
 
+or
+
+https://docs.google.com/document/d/13034Xs0jox9NL4b7HuhXc2MLZmJ-pmgEjXR5NJGa9so/edit?usp=sharing
+
 ## When are some indicators I should use recursion?
 
 - A quick test for recursion is to take a random smaller instance of the problem and ask:
