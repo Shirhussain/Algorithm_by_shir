@@ -5,3 +5,6 @@ https://www.piratekingdom.com/leetcode/cheat-sheet
 https://www.piratekingdom.com/leetcode/templates
 
 https://www.piratekingdom.com/leetcode/tricks
+
+in you interested in Graph or game development so read this:
+https://www.redblobgames.com/
