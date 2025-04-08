@@ -139,4 +139,5 @@ def pattern12(n):
     return
 
 
-pattern12(5)
+def pattern13(n):
+    
