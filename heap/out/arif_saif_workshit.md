@@ -2,6 +2,8 @@ the full detail is in https://docs.google.com/document/d/1Pywez4fFN1L7hysgrPwsNK
 
 https://docs.google.com/document/d/1LIKP68y9G63u6LH_Q_495D7DjEm6qdrPY7hTvceCNxE/edit?usp=sharing
 
+https://docs.google.com/document/d/19bYvU3Vi2fgLsI7v3owKOUWtr8Oc8nq9-TZAhhY0QOU/edit?usp=sharing
+
 Heap
 What is a min heap?
 It’s a complete binary tree.

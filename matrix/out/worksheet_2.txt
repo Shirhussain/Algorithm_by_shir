@@ -37,3 +37,88 @@ What is the runtime and space complexity of a Matrix backtracking algorithm?
 Time: 4^(N*M)
 Space: N*M + size of output
 
+
+
+
+
+
+
+
+
+
+
+How do I know that I should be using a Matrix solution?
+
+- "Matrix", 2d array, grid (maybe even hex)
+
+How is a matrix problem different from a graph problem?
+
+- Boundaries, not as amorphous as a general graph
+- Neighbors are described differently
+- Constraints on the universe of neighbor
+- Often don't need a "visited" set with matrix problems
+
+How do I solve a matrix problem?
+
+- Using graph algorithms
+  == Breadth-first 
+     --- Optimal searches
+  == Depth-first
+     --- Simpler to write
+     
+- Just "traverse" the matrix (nested loop)
+- Be creative
+
+Write a template for backtracking (DFS) on a matrix
+
+backtrack(matrix, start_location, end_location):
+
+  define final_path to be []
+  
+  def dfs(start, finish, path):
+    if start is outside the matrix or has been visited
+      return false
+    if start is the finish
+      set final_path to a copy of path
+    push start onto path
+    mark
+    dfs(neighbors(start), finish, path)
+    unmark
+    remove start from end of path
+
+  dfs(start_location, end_location, [])
+
+  return final_path
+
+
+Write a template for BFS on a matrix
+
+bfs(matrix, start_location, finish_location):
+  create an empty queue
+  place start_location in queue
+  mark matrix at start_location as visited 
+  set path_length to 0
+  while queue is not empty
+    get location from front of queue
+    if location is finish_location
+      return path_length
+    increment path_length
+    add each unmarked neighbor to the queue and mark them
+    
+
+What is the runtime and space complexity of a Matrix traversal 
+(nested loop) algorithm?
+
+- Time: 
+- Space: 
+
+What is runtime and space complexity for BFS?
+
+- Time: 
+- Space: 
+
+What is the runtime and space complexity of a Matrix backtracking algorithm?
+
+Runtime: 
+
+
