@@ -1,4 +1,7 @@
 https://photonlines.substack.com/p/visual-focused-algorithms-cheat-sheet
+https://photonlines.substack.com/archive?sort=new
+
+https://photonlines.substack.com/p/visual-data-structures-cheat-sheet
 
 https://www.piratekingdom.com/leetcode/cheat-sheet
 
@@ -8,3 +11,6 @@ https://www.piratekingdom.com/leetcode/tricks
 
 in you interested in Graph or game development so read this:
 https://www.redblobgames.com/
+
+
+
