@@ -140,25 +140,3 @@ def pattern12(n):
 
 
 # def pattern13(n):
-
-
-def validPath(self, n: int, edges:, source: int, destination: int) -> bool:
-    graph = collections.defaultdict(list)
-    for u, v in edges:
-        graph[u].append(v)
-        graph[v].append(u)
-
-    visited = set()
-
-    def dfs(node):
-        if node == destination:
-            return True
-        visited.add(node)
-
-        for edg in graph[node]:
-            if edg not in visited:
-                if dfs(edg):
-                    return True
-        return False
-
-    return dfs(source)
