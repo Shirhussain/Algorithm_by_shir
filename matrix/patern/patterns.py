@@ -132,11 +132,35 @@ def pattern11(n):
         print()
     return
 
+# z
 
-def pattern12(n):
-    pattern11(n)
-    pattern10(n)
+
+# def pattern12(n):
+#     pattern11(n)
+#     pattern10(n)
+#     return
+
+
+def pattern13(n):
+    # z
+    print("* " * n)
+    for i in range(n):
+        print(" " * (n - i), end="")
+        print(" *")
+    print("* " * n)
     return
 
 
 # def pattern13(n):
+print(pattern1(5))
+print(pattern2(5))
+print(pattern3(5))
+print(pattern4(5))
+print(pattern5(5))
+print(pattern6(5))
+print(pattern7(5))
+print(pattern8(5))
+print(pattern9(5))
+print(pattern10(5))
+print(pattern11(5))
+print(pattern13(5))
