@@ -32,15 +32,13 @@ def grep(needle, haystack):
     result = []
 
     for i in range(len(haystack)-len(needle)):
-        j = 0
-        print("i:", i, "and num[i]: ", haystack[i])
-        for j in range(j, len(needle)):
-            print("j: ", j, "and needle[j]: ", needle[j])
-            # if haystack[i+j] != needle[j]:
-            #     break
+        while j < len(needle):
+            if haystack[i+j] != needle[j]:
+                break
+            j += 1
 
         if j == len(needle):
-            result.append(j)
+            result.append(i)
     return result
 
 

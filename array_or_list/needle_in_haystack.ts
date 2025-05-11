@@ -21,30 +21,50 @@ Time: O(h*n) -> O(h)
 Space: O(1)
 */
 
-function grep(string haystack, string needle) {
-    if (haystack.length == 0 || needle.length == 0) {
-      return []
-    }
-    
-    let result = []
-    
-    for (let i = 0; i <= haystack.length - needle.length; i++) {
-      let j = 0
-      for (; j < needle.length; j++) {
-        
-        if (haystack[i + j] != needle[j]) {
-          break
-        }
-      }
-  
-      if (j == needle.length) {
-        result.append(i)
-      }
-    }
-    
+function grep(haystack: string, needle: string) {
+  if (haystack.length == 0 || needle.length == 0) {
+    return [];
   }
-  
-  /*
+
+  let result: number[] = [];
+
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+    let j = 0;
+    for (; j < needle.length; j++) {
+      if (haystack[i + j] != needle[j]) {
+        break;
+      }
+    }
+
+    if (j == needle.length) {
+      result.push(i);
+    }
+  }
+  return result;
+}
+
+console.log(grep("aaaaa", "aaa"));
+console.log(grep("aaabcdddbadddabcdefghi", "abc"));
+
+const grep2 = (haystack: string, needle: string): number[] => {
+  if (haystack.length == 0 || needle.length == 0) {
+    return [];
+  }
+
+  let result: number[] = [];
+
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+    if (haystack.substring(i, i + needle.length) == needle) {
+      result.push(i);
+    }
+  }
+  return result;
+};
+
+console.log(grep2("aaaaa", "aaa"));
+console.log(grep2("aaabcdddbadddabcdefghi", "abc"));
+
+/*
   haystack = "aaaaa"
                 i
                   i+j
@@ -84,8 +104,3 @@ function grep(string haystack, string needle) {
   '123' => 1*10**2 + 2*10**1 + 3*10**0 => 123
   
   */
-  
-  
-  
-  
-  
