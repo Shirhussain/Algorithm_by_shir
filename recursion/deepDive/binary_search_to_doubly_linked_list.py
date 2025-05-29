@@ -18,8 +18,6 @@ class Node():
                 self.left.add_node(new_value)
 
 
-
-
 def convert_tree_to_linked_list(root):
     if root is None:
         return 
