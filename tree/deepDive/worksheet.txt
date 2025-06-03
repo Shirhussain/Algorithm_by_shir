@@ -66,3 +66,70 @@ Time: O(# of nodes visited)
 DFS Space: O(max depth of tree) 
 BFS Space: O(max width of tree)
 
+
+
+
+
+
+
+
+
+
+What are some indicators I should use a Tree approach to solve a problem?
+
+- It says "tree" in the problem, "root", "leaf", "depth"
+- Hiercharchical data structure: JSON, HTML/XML, DOM
+
+How do I solve a (binary) Tree problem?
+
+- Depth-first search (DFS)
+  -- Pre-order
+  -- In-order
+  -- Post-order
+
+- Breadth-first search (BFS): optimization (closest to root)
+
+Write a template for a recursive DFS tree traversal
+
+# "push-down" recursion
+preorder(root)
+  if root is not null
+    visit(root)
+    preorder(root.left)
+    preorder(root.right)
+
+# "pull-up" recursion
+postorder(root)
+  if root is not null
+    postorder(root.left)
+    postorder(root.right)
+    visit(root)
+    
+inorder(root)
+  if root is not null
+    inorder(root.left)
+    visit(root)
+    inorder(root.right)
+  
+
+
+Write a template for a BFS binary tree traversal
+
+bfs(root):
+  create empty queue
+  add root to back of queue
+  while queue is not empty
+    remove node from front of the queue
+    "visit" node
+    add children of node to back of the queue
+
+What is the runtime & space complexity of a Tree Traversal?
+
+Space:
+
+DFS: O(depth of tree)
+BFS: O(width of the tree)
+  
+Time:
+O(size of tree), can be less for breadth-first
+
