@@ -1,6 +1,8 @@
 first read this: https://docs.google.com/document/d/1gb3HGTzR770yV3kLLhlmkLr4JiIs6MM_Oo50Lk3US9A/edit?usp=sharing
 and this: https://docs.google.com/document/d/1jBbwsQ09DtSlqzm13D2Bhwz2K4T1x4zmPSfiWs0F16w/edit?usp=sharing
 
+https://docs.google.com/document/d/1ZWchZBUJl3DrVqE6TQn4H_tx6mIFqqH1CN5xv0Cl10U/edit?usp=sharing
+
 https://docs.google.com/document/d/1P3_MhWN72mUJIcGKpPU7Noimn9ErqxPSvWrB78RsgXI/edit?usp=sharing
 
 https://docs.google.com/document/d/1VhTnjPmNpP6wo00oe8qP2ImVMtxK_thIiXFSEYlbNZ0/edit?usp=sharing
