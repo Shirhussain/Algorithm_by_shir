@@ -47,6 +47,12 @@ The sums of all permutations of two elements from  are:
 Only  will not ever sum to a multiple of .
 """
 
+
+#  although you could do this by recursion, it's not the best solution
+# if we have a big K or n it's is not possible to do back tracking 
+# so in this case if you have some think like the word "mode" or "division" or some thing like that
+# and you are working with numbers so think about "Math" how you can solve this problem with math
+
 def nonDivisibleSubset(k, s):
     # Write your code here
     result = 0
