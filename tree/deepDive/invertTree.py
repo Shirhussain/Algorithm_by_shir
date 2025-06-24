@@ -1,0 +1,53 @@
+""" 
+ Invert Binary Tree
+
+Given the root of a binary tree, invert the tree, and return its root.
+
+ 
+
+Example 1:
+
+Input: root = [4,2,7,1,3,6,9]
+Output: [4,7,2,9,6,3,1]
+
+Example 2:
+
+Input: root = [2,1,3]
+Output: [2,3,1]
+
+
+
+to see the recursive callstack go here: https://www.mermaidchart.com/play?utm_source=mermaid_live_editor&utm_medium=toggle#pako:eNrNWd1u48YVfpVZByhsQ941hzJpEdgWkkxnjdqSS2nTButFwKWGFhGaFEjK9iIIEKBtLoq0Kbq96SLooj8XvetFb3LXd_ELdB-hZ_7IGYpU5eymiAHJ4syZmfN952fOcD7bCtIZ2XK29vb2LpIgTcLo0rlIEIr9l-mycFAY3ZLZRcK6wzi9CeZ-VqDpEcjkyxeXmb-Yo2lGyICEaUaeXWy9ffPVv9A4iy6jxI9Z18XWczoj_xu4x2PPBbmubHsEnwv6x58x-7b50yPWU_5gjQZ8TGTBd489v33z6jdoUmTLoFhmxEHPuh3csTtGx-xYnd5zIfO7f6InJLqcAyQTxeSaxLno-erfaAQc5A6yUZEWfiz0JcmsDrIfFiSTGE-Sa5IVZLaKsX88db01EG0OtB1iDz4W6Alg2yDaALIHAM2OsQYiLNsGkrbfffMPdE6ykAQFuoqyLM0eNIPvx5dpFhXzK0B19_pP__n266oJFCOLXCfg9EMQNEDs7pd_Q7u7wzkJPkUDPydoCF-7u6VoFKIsTQsU5aBfAtAyAhAT9sCFcDnL5MZfoOE8imcZSZQ56AQPYxIWHf4zoxygx8pDp5Lho8xyUo8Eywz0ShM0Wb4owJS5qh6zMTXwdjnDTmsvW0t0d5UVGCIPJFSleSsdx9vevvnjr0D63C_AxxJndxedp3mxl2YzkqEi82GpXJgN3b3-C4hOoytC5cbbyQ7aQ9dRHhWI-MEcJWBqQBQQOfWr15S_hR-IAXM6IGPQI0CeFz7YZ86cp9kBJoVf5MzzwRPdWxhZ0IG0OcqLKNDtP5n2pxMmDT4JmMDF0uzKB4XQGSkyEHckFXdf_JUFUOW6Sjt11NJvq_bjZRKw5Yd-HEOXcVD1lU4G7YdV84QhPCKLYu6grtIOPpWjM39GtBUYtZzYx_DP3lFGMBY5h7TP3JEkf_0ls3a-jAHGyegj15u6RxJnzbyKcUFCpZzT500Zfa-_gDHuL9zh0-nJeMQ75Ixajm1Oe-jD1I8dkakenbEIR8WcoBcwMHuJqLtzQfd2AUkAkpnUv55itp6jvb0fI3c09T7mfvBb6lJT9xwZTj0SdhTU3_IAf8zsuN3dUTpYWnC0BPATNBpDWnqlSi0ziPeCKUs9tSBO5WmozLH1JKtvJI1pVttKpP8yhAzr5Of9c4NhZaZjWLHDmpE3Hk_R8MnJ6ZHnjjS0fCN0qozzmAHHO2p24m22SoYIEue7pDM2AducVta1G9bF6rrTe9JqS3Lvvvw94-LcPXqwjmRGL6e6JJlRy0j2wLe9ict5hl1K8Gw6oufkIxcN-6enE0nyKL1BAcR9lFwKhY2HzXkaNPyD2iP4EODxw5b83TgMwzCpvFSZ6U91-8TmEfFnqX237zQt3BoV9v2jQktouCFccr6bqUa1W41qsW8aBOhHHBKuQxo4TaS0QsL_H0i4FZLBviuX44YqA1vYrIrsg74IbWGR9dFdBZhFA6yKrV5DTKMcdpnVSK3m6OlzWOocoipZDdF2a_akTbUQVWNPECE8WXBRRZ_VXwk_FGbpleRGUjJcE4cCWGO0CZQrISXUYqbq1RzQ7htO0_ytHth7Rw80lQ4xIR3qg938EMqnJEWBKEahpOY2ruLH6q_oj50mDlr1t963_tYm-ivB0quCpVcLlkNqjCpaeptFS0IqN09I097HZeg3Y0E-tMZO64wjCs5PLgkAZXhpSayHQE8LgV4tBHoUYXsM9DaMgYS0BADtqHs_12jQpz9Pq_KZNoACE9dZmaLZeTQmGj3nY3fyQJG5--bXtHR1p0-9EZPQ5q3VzszHuZLeD1hJ3ifIFKaeSl5f_R2mOgUf4iEgTmO5nFYf7VWjvWq0x8qytcP5gjyljc_OT90p9zOOhNfO-9TPyiASUnoQpcVcntWuCat9chRGSZTPyawhR8HhiHn-DG1Tz1eziCcP1_X0qCcOVgFhHYZXgyGcv3wuObJl5qYkSZ0WWRqQPCczhR2RJqskI1KmmmWwmmWsd8wy7y91CK1l3ArF1eSB1yUP6_tIHkIn5rJWv5Y-VoOS2bj0VxnRVt-730AlTmBR3UcYLdzXS_s1ObjqldbGXin1ra9Zc8zSVNQzrZpnWs2eKdxYn9muBa7Rd6pSsTVuyx22XEeROGbHd17YlXPdROqwZ3AAf97Cld3KFWZcGTVAVg1QjSm7JIoebuWZpkyUovhGQXq1iEmhZ19N-Ui-GK2h0AIfV3GP65X4QI16vHElbuhVtPldKnFTn8PYqBJvP4SY8ijSXoljLZXgeiU-WJdI8OaVuLmmEjcaKnFcVeJmvZIdNFTi5ppKVrOEaKlK0fb6taqmjRUVGoppY40KxooKxoYqKD5rMk7OvfHQnUwYLfxF7M-engx_KtslQL06AbfbpLoVb6NXs26nZWdQK4Tai_OyaFJzhllZusRRxj2Wpi4TpLlm6zY0Nox1bBg_UDaMVTYMhQ2jxobRvl1gQWOZTXF9uxg4VT57X9sFXtkuyuug1e0C32u7wIKJClBtu8D6doHrlfH_3i9w-34hXjlX6vAtiS15fDLqn34i9ajKFc4zLbzYu9l3KaXpXY18X43mfs62jYWmod3BKtH9OJaIcxgBk78gICahrZokU5ZYRYobkHIRvY2JPXG9MaOBXUDQJ3Q2PnNHUyhgp57rlncRDzQyqHfKO4SW64NSTt51Nl89ihfJ7LYmlHczgX43w0TO_Ftx1zTTbmK4cejNTSBubtA2DOflt-R8p5ZBcrTgmzpVy67t9dWNJvJhAnJNZtW-mxcvY8IvU8D6cex8QMwQh7NOXmTpp8T5wOjZ1gyLx72baAa6motbbTR7g81Hh2Fokv1ydHhgB_v7dWHw3g2l5ZlVihNwpUq82zVNa1Xcu5c4rdXvJ7_x_KKo2RBrzZ2FNQ7DA3JYjuoGfniwr1sD69ZgTs8HB4fECnrlYPPwkJhBgym3Pv8vNkyVPg
+
+
+
+
+"""
+
+def invertTree(root): 
+    if root is None:
+        return None 
+    root.left, root.right = root.right, root.left
+    invertTree(root.left) 
+    invertTree(root.right)
+    return root
+    
+    
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+root = TreeNode(4)
+root.left = TreeNode(2)
+root.right = TreeNode(7)
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(3)
+root.right.left = TreeNode(6)
+root.right.right = TreeNode(9)
+
+print(invertTree(root)) 
+
+
+

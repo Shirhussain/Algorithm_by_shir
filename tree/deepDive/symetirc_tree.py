@@ -196,3 +196,47 @@ root.right.left = TreeNode(4)
 root.right.right = TreeNode(3)
 
 print(symmetric3(root))
+
+
+from collections import deque
+
+def is_palindrome(values):
+    return values == values[::-1]
+
+def symmetric_level_order(root):
+    if root is None:
+        return True
+    
+    queue = deque([root])
+    while queue:
+        level_size = len(queue)
+        level_values = []
+        for _ in range(level_size):
+            node = queue.popleft()
+            if node:
+                queue.append(node.left)
+                queue.append(node.right)
+                level_values.append(node.val)
+            else:
+                level_values.append(None)
+        
+        # optimize: if all arr is None
+        if all(val is None for val in level_values):
+            break
+        if not is_palindrome(level_values):
+            return False
+    return True
+
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(2)
+root.left.left = TreeNode(3)
+root.left.right = TreeNode(4)
+root.right.left = TreeNode(4)
+root.right.right = TreeNode(3)
+
+print(symmetric_level_order(root))
+
+
+
+
