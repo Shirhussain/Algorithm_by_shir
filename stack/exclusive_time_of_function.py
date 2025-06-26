@@ -84,7 +84,7 @@ Soloution:
         - update the prev_time = cur_time + 1
 """
 
-
+from typing import List
 class Solution:
     def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
         result = [0] * n
