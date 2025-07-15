@@ -1,5 +1,7 @@
 https://docs.google.com/document/d/1lA0-lfkrG9KVk88mgJtHnlrPpTVlVoOlSkOawfJXzrA/edit?usp=sharing
 
+https://excalidraw.com/#room=e9eef1131362e3805d47,K16Dr0OFoBHnQQ1bcp7gBw
+
 What are some indicators I should use dynamic Programming?
 
 - Repeated work.
