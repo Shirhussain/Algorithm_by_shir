@@ -10,6 +10,8 @@ https://docs.google.com/document/d/1FjmiO6SNzruYFgwmN8Xfl-p6YSPMuksGrCAjgVOgBtM/
 
 https://excalidraw.com/#room=bdcfb50e753314bf1d85,Mja9y7itwedStzqmMiSxww
 
+https://excalidraw.com/#room=3ee4de81e1b57c29ee9d,fOCpxX1mt0V7lvAVcFUffA
+
 Graphs
 What is a Graph?
 Node: a data point or a number

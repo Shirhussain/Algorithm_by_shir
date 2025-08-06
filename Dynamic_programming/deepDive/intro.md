@@ -1,5 +1,7 @@
 https://docs.google.com/document/d/1UV4aUeP-gNhUN-cKaECYQrqhkzCkddgHjGTHyy8T1I8/edit?usp=sharing
 
+https://docs.google.com/document/d/15ZKNn2axdWYQkSxA6AOHtm9CAGVsHwpQs3_1QzqKkR4/edit?usp=sharing
+
 Dynamic Programming
 What are some indicators I should use dynamic Programming
 Recursive problem
