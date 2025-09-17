@@ -12,6 +12,8 @@ https://excalidraw.com/#room=bdcfb50e753314bf1d85,Mja9y7itwedStzqmMiSxww
 
 https://excalidraw.com/#room=3ee4de81e1b57c29ee9d,fOCpxX1mt0V7lvAVcFUffA
 
+https://excalidraw.com/#room=76157ca1cef9ae933a15,vTvHPjeLcbWh0el8LCca9g
+
 Graphs
 What is a Graph?
 Node: a data point or a number
