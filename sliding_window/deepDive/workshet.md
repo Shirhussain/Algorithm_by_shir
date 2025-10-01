@@ -1,3 +1,5 @@
+https://excalidraw.com/#room=e3ab3eef91b3977bab93,D7iBz5Yqf83qU1cDnxyxCw
+
 What are some indicators I should use Sliding Window?
 
 - Contiguous slices of a linear data structure (array, string)
@@ -15,11 +17,11 @@ How do I solve a sliding window problem?
 Write a template for the sliding window technique:
 
 sliding_window(input)
-  initialize state related to window
-  initialize left to 0
-  
-  for r in range 0 to length of input
-  
+initialize state related to window
+initialize left to 0
+
+for r in range 0 to length of input
+
     update window state for expansion
     while monotonic condition is not met
       update window state for contraction
@@ -27,8 +29,7 @@ sliding_window(input)
 
 NOTE: typically going to need additional code to capture/return the answer
 
-
 What is the runtime & space complexity of a sliding window algorithm?
 
-Time: O(N) * (time for updating state)
-Space: O(1) + size of state + output size 
+Time: O(N) \* (time for updating state)
+Space: O(1) + size of state + output size
