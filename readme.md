@@ -1,1 +1,1 @@
-# If you want to really deep dive then go to subfolder of "deep dive" for each folder.
+# If you want to dive deeper, go to the “deep dive” subfolder inside each folder.
