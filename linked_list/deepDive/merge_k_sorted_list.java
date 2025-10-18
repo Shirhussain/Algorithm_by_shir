@@ -43,7 +43,32 @@ class Solution {
         if (lists == null || lists.length == 0) {
             return null;
         }
-        return helper(lists, 0, lists.length - 1);
+        // return helper(lists, 0, lists.length - 1);
+        // or using Heap:
+          // Min-heap based on ListNode.val
+        PriorityQueue<ListNode> heap = new PriorityQueue<>((a, b) -> a.val - b.val);
+
+        // Add all non-null heads to the heap
+        for (ListNode node : lists) {
+            if (node != null) {
+                heap.offer(node);
+            }
+        }
+
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
+
+        while (!heap.isEmpty()) {
+            ListNode smallest = heap.poll();
+            cur.next = smallest;
+            cur = cur.next;
+
+            if (smallest.next != null) {
+                heap.offer(smallest.next);
+            }
+        }
+
+        return dummy.next;
     }
 
     ListNode helper(ListNode[] lists, int left, int right) {
