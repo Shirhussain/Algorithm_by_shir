@@ -159,3 +159,65 @@ def find_max_another_way(arr, index):
 
 
 print(find_max([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+
+
+# matrix max challenge, a recursive function that find the
+# maximum from a 2D array
+
+def find_max_matrix(matrix):
+    max_value = float()
+
+    def traverse(elements):
+        nonlocal max_value
+        if type(elements) != list:
+            if elements > max_value:
+                max_value = elements
+            return
+        for element in elements:
+            traverse(element)
+
+    traverse(matrix)
+    return max_value
+
+
+matrix = [[1, 200], [3, 400], [100, -1]]
+
+print(find_max_matrix(matrix))
+
+# or another way to solve the matrix max challenge
+
+
+def find_max_matrix_another_way(matrix):
+    if not isinstance(matrix, list):
+        return matrix
+
+    max_value = float("-inf")
+    for element in matrix:
+        curr_max = find_max_matrix_another_way(element)
+        max_value = max(max_value, curr_max)
+    return max_value
+
+
+print(find_max_matrix_another_way(matrix))
+
+
+# with row and column index
+
+def findMaxMatrixRowCol(matrix):
+    return max_mtx(0,0, matrix)
+
+def max_mtx(r, c, m):
+    if r == len(m):
+        return None , None 
+    if c == len(m[r]): # it meas we reach the end of column and we need to jump to beginning of next row
+        return max_mtx(r+1, 0, m)
+    
+    row_max, col_max = max_mtx(r, c+1, m)
+    
+    if row_max == None or col_max == None:
+        row_max, col_max = r, c 
+    if m[r][c] > m[row_max][col_max]:
+        row_max, col_max = r, c 
+    return row_max, col_max
+
+print(findMaxMatrixRowCol(matrix))
