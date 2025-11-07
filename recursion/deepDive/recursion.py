@@ -221,3 +221,51 @@ def max_mtx(r, c, m):
     return row_max, col_max
 
 print(findMaxMatrixRowCol(matrix))
+
+
+# find max in array using divide and conquer
+
+def find_max_in_array(arr):
+    if len(arr) == 0:
+        return None 
+    return divide_and_conquer(0, len(arr)-1, arr)
+
+def divide_and_conquer(left, right, arr):
+    if left == right: 
+        return arr[left]
+    mid = (left + right) // 2
+    return max(divide_and_conquer(left, mid, arr), divide_and_conquer(mid+1, right, arr))
+
+arr = [1, 3,40, 500, -10]
+print(find_max_in_array(arr))
+
+
+# do divide and conquer but find the minimum with three way search instead of two 
+
+def find_min_tree_way_search(arr):
+    if len(arr) == 0:
+        return None 
+    return min_three_way(0, len(arr)-1, arr)
+
+def min_three_way(left, right, arr):
+    # handle size 1 interval 
+    if right == left:
+        return arr[left]
+    # handle size 2
+    if right - left == 1:
+        return min(arr[left], arr[left+1])
+    # handle size 3
+    if right - left == 2:
+        return min(arr[left], arr[left+1], arr[left+2])
+    
+    third = (right-left)//3
+    mid1 = left + third
+    mid2 = left + 2 * third
+    
+    min1 = min_three_way(left, mid1, arr)
+    min2 = min_three_way(mid1+1, mid2, arr)
+    min3 = min_three_way(mid2+1, right, arr)
+    return min(min1, min2, min3)
+    
+    
+print(find_min_tree_way_search(arr))
