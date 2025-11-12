@@ -41,6 +41,9 @@ dp[i] = sum of dp[j-1] * dp[i-j] for all j from 1 to i
           j-1   n-j
 
 
+look at this https://excalidraw.com/#room=b90eca8516d5965d9393,6Hp6ms1ehDsg-MXhCekv_g
+or at file 'bst_deep.png' in current directory
+
 """
 
 
@@ -58,3 +61,47 @@ def unique_bst(n):
 
 print(unique_bst(3))
 print(unique_bst(1))
+
+
+def unique_bst_recursive(n):
+    if n == 0 or n == 1:
+        return 1
+    return sum(unique_bst_recursive(i-1) * unique_bst_recursive(n-i) for i in range(1, n+1))
+
+
+print(unique_bst_recursive(3))
+print(unique_bst_recursive(1))
+
+
+def unique_bst_recursive_2(n):
+    if n == 0 or n == 1:
+        return 1
+    counter = 0
+    for i in range(1, n+1):
+        counter += unique_bst_recursive_2(i-1) * unique_bst_recursive_2(n-i)
+    return counter
+
+
+print(unique_bst_recursive_2(3))
+print(unique_bst_recursive_2(1))
+
+
+def unique_bst_memo(n):
+    memo = {}
+
+    def helper(n, memo):
+        if n in memo:
+            return memo[n]
+        if n == 0 or n == 1:
+            return 1
+        counter = 0
+
+        for i in range(1, n+1):
+            counter += helper(i-1, memo) * helper(n-i, memo)
+        memo[n] = counter
+        return counter
+    return helper(n, memo)
+
+
+print(unique_bst_memo(3))
+print(unique_bst_memo(1))

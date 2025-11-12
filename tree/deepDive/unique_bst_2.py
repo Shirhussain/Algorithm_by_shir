@@ -101,4 +101,51 @@ def gen_bsts(n):
     helper(list of elements up to i, i, list of elements following i, )
 
   return answer
+  
+[1,2,3,..... n]
+    i -> root
+
+# for example if we put i in have the left have would be in i-1 and the right have would be in n-i
+fn(i) = fn(i-1) * fn(n-i)
+
+fn(0) = 1
+fn(1) = 1
+
 '''
+
+# Definition for a binary tree node.
+
+from typing import Optional, List
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
+
+        if n == 0:
+            return [None]
+
+        def helper(start, end):
+            if start > end:
+                return [None]
+
+            result = []
+            for i in range(start, end+1):
+                left_tree = helper(start, i-1)
+                right_tree = helper(i+1, end)
+
+                for left in left_tree:
+                    for right in right_tree:
+                        result.append(TreeNode(i, left, right))
+            return result
+
+        return helper(1, n)
+
+
+solution = Solution()
+print(solution.generateTrees(3))
+print(solution.generateTrees(1))
