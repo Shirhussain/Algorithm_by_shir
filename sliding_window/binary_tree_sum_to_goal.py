@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
         # Helper function to calculate subarrays with at most `goal` sum
