@@ -21,3 +21,6 @@ some pattern in programming:
 https://youtu.be/56TxHMG0qhQ?si=aI1s-8p42Cosy34S
 
 
+flowchart how to find the pattern: 
+https://algo.monster/flowchart
+
