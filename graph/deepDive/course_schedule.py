@@ -27,7 +27,7 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 """
     Solution: 
         Nodes: courses
-        Edges are prerequisit relationships
+        Edges are prerequisite relationships
 
         Detect if there is at least one cycle in the graph because 
         A graph has topological sort iff there are no cycles
