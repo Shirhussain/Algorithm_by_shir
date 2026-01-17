@@ -26,34 +26,32 @@ Space = O(1)
 */
 
 function findSubstring(str) {
-  let n = str.length
-  
-  let answer = n
-  
+  let n = str.length;
+
+  let answer = n;
+
   // Store all distinct chars
-  let chars = new Array(26).fill(false)
+  let chars = new Array(26).fill(false);
   for (let i = 0; i < n; i++) {
-    chars[str.charCodeAt(i) - 97] = true
+    chars[str.charCodeAt(i) - 97] = true;
   }
   // [a,b,c,d]
-  
+
   for (let i = 0; i < n; i++) {
-    let substr = new Array(26).fill(false)
-    
+    let substr = new Array(26).fill(false);
+
     for (let j = i; j < n; j++) {
-      substr[str.charcodeAt(j) - 97] = true
+      substr[str.charcodeAt(j) - 97] = true;
     }
-    
-    for(let i = 0; i < chars.length; i++) {
+
+    for (let i = 0; i < chars.length; i++) {
       if (chars[i] && !substr[i]) {
-        break
+        break;
       }
     }
-    answer = Math.min(answer, j - i + 1)
+    answer = Math.min(answer, j - i + 1);
   }
-  
 }
-
 
 /*
 
@@ -70,52 +68,42 @@ function findSubstring(str) {
  - If all the distinct chars are in our current window
 */
 
-
-
-
 function findSubstring(str) {
-  let n = str.length
-  
-  let answer = n
-  
+  let n = str.length;
+
+  let answer = n;
+
   // Store all distinct chars
-  let chars = new Array(26).fill(false)
+  let chars = new Array(26).fill(false);
   for (let i = 0; i < n; i++) {
-    chars[str.charCodeAt(i) - 97] = true
-    
+    chars[str.charCodeAt(i) - 97] = true;
   }
-  
-  let dist = chars.length
-  
+
+  let dist = chars.length;
+
   // [a,b,c,d]
-  
-  start = 0
-  count = 0
-  let substr = new Array(26).fill(0)
-  
+
+  start = 0;
+  count = 0;
+  let substr = new Array(26).fill(0);
+
   // Expanding
   for (let i = 0; i < n; i++) {
-    substr[str.charCodeAt(i) - 97]++
-    
+    substr[str.charCodeAt(i) - 97]++;
+
     if (substr[str.charCodeAt(i) - 97] == 1) {
-      count++
+      count++;
     }
-    
+
     // Contracting
     while (count == dist) {
-      answer = Math.min(answer, i - start + 1)
-      substr[str.charCodeAt(start) - 97]--
+      answer = Math.min(answer, i - start + 1);
+      substr[str.charCodeAt(start) - 97]--;
       if (substr[str.charCodeAt(i) - 97] == 0) {
-        count--
+        count--;
       }
     }
   }
-  
-  return answer
+
+  return answer;
 }
-
-
-/*
- *  Time: O(n)
- *  Space: O(1)
- * /    
