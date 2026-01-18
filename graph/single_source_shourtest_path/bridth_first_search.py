@@ -14,7 +14,7 @@ class Graph:
 
     # it only works for related graph
     # it's not working for weighted graph
-    # wight is actually the number which is encluded in the graph consider the price of flyight between cities
+    # wight is actually the number which is included in the graph consider the price of flight between cities
     # work with unweighted undirected graph
     # work with unweighted directed graph
     # so it means DFC can not find the single shortest path problem
