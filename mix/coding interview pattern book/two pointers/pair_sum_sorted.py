@@ -45,4 +45,5 @@ def pair_sum_sorted_tow_pointer(nums, target):
             r -= 1
     return []
 
-print(pair_sum_sorted_tow_pointer(nums, target))
+print("two pointer: ", pair_sum_sorted_tow_pointer(nums, target))
+

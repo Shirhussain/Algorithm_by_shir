@@ -139,3 +139,97 @@ def triplet_sum_functional(nums: List[int]) -> List[List[int]]:
 
 
 print(triplet_sum_functional(nums))
+
+
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        result = set()
+
+        def helper(index, path):
+            if len(path) == 3:
+                if sum(path) == 0:
+                    result.add(tuple(sorted(path)))
+                return 
+
+            if index == len(nums):
+                return 
+            
+            # pick
+            helper(index+1, path+[nums[index]])
+                    
+            # not pick
+            helper(index+1, path)
+        
+        helper(0,[])
+
+        return [list(t) for t in result]
+s = Solution()
+
+print("leetcode : ", s.threeSum(nums))
+
+
+
+
+def brut_force_three_sum(nums):
+    result = set()
+    for i in range(len(nums)):
+        for j in range(i+1, len(nums)):
+            for k in range(j+1, len(nums)):
+                if nums[i]+nums[j] + nums[k] == 0:
+                    curr_sol = [nums[i], nums[j], nums[k]]
+                    result.add(tuple(sorted(curr_sol)))
+    return result
+
+print("brute force: ", brut_force_three_sum(nums))
+
+
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        """
+        a + b + c = 0
+        Notice if we fix one of the number then 
+        problem reduced to two number and led this: b + c = -a
+        
+        now first sort and then take one fix as negative "-target" and the rest 
+        will fallow tow pointer approach.  [-4, -1, -1, 0, 1, 2]
+        """
+        
+        nums.sort()
+        result = []
+
+        def pair_sum(arr, target):
+            l = 0 
+            r = len(arr) -1
+            sol = []
+            while l < r:
+                sum_pair = arr[l] + arr[r]
+                if  sum_pair == target:
+                    sol.append([arr[l], arr[r]])
+                    l += 1
+                    #l To avoid duplicate '[b, c]• pairs, s kip 'b' if it •s the same as the previous number.
+                    while l < r and arr[l] == arr[l-1]:
+                        l +=1 
+                elif arr[l] + arr[r] < target:
+                    l += 1
+                elif arr[l] + arr[r] > target:
+                    r -= 1
+            return sol
+
+
+        for i, num in enumerate(nums):
+            # To avoid duplicate , skip •a' if it's the same as the previous number.
+            if i > 0 and num == nums[i-1]:
+                continue
+            
+            # I Find all pairs that sum to a target of '-a ' ( - nums [ i 1)
+            pairs = pair_sum(nums[i+1:], -num)
+            for pair in pairs:
+                result.append([num] + pair)
+
+        return result
+
+s = Solution()
+print("O(n^2) solution: ", s.threeSum(nums))
+
