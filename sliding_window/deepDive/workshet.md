@@ -1,5 +1,7 @@
 https://excalidraw.com/#room=e3ab3eef91b3977bab93,D7iBz5Yqf83qU1cDnxyxCw
 
+https://docs.google.com/document/d/1wCtpZBOZ7Its6cMMz1bFWAa7xt1spyKNyWogxw2fjT0/edit?usp=sharing
+
 What are some indicators I should use Sliding Window?
 
 - Contiguous slices of a linear data structure (array, string)
