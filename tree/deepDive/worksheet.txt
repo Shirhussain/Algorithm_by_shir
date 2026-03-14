@@ -56,6 +56,13 @@ inorder(node):
   visit(node)
   inorder(node.right)
 
+
+preOrder = Action -> Left --> Right  ===> ALR  : use this when you don't care about your child and don't need any data from them -> push down or you want ot push data from you to child
+
+inOrder = Left -> Action -> Right ===> LAR : use this when you need a data from your left chid first -> left to right, it means that if you want to precess from left to the right 
+
+postOrder = Left -> Right -> Action ===> LRA : pull up method, it means that you need to child data first then the parent or pull up
+
 Write a template for an iterative BFS or DFS tree traversal
 
 bfs(node):
