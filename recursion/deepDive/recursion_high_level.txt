@@ -1,0 +1,234 @@
+When are some indicators I should use recursion?
+
+- Top to bottom hierarchy
+  -- Need to explore alternatives that all use the same 
+     sort of processing
+
+How do I solve a recursion problem?
+
+- Identify base case(s)
+- Identify the "normal" case processing,
+  which will involve recursive calls to smaller problems
+
+Write a template for Pure Recursion
+
+- See below (helper_method)
+
+Write a template for Helper Method Recursion
+
+def helper_method_recursion(problem)
+
+	create an empty answer variable
+  
+  def helper_method(problem_state)
+  
+  	# base case(s)
+    
+    # recursive case, make recusrive calls with modified problem_state
+  
+  helper_method(initial_problem_state)
+
+	return answer
+
+What is the runtime and space complexity of a recursive algorithm?
+
+- Runtime: O(number of nodes in the search tree) = O(branching-factor ^ depth-of-tree)
+- Space: O(size of the stack + output_size) = O(depth-of-tree + output_size)
+
+Problem 1
+
+In a simplified game of American football, teams score points by either achieving a 
+touchdown (7 points) or a field goal (3 points).
+
+Given the score for a single team, please return how many different permutations of 
+touchdowns and/or field goals exist in order to arrive at that score.
+
+Input: Integer
+Output: Integer
+
+Examples
+Input:  10
+Output: 2
+
+Explanation: For a score of 10, the output would be 2. The 2 ways to arrive at
+this score is to:
+
+1) Score a field goal (3 points) and then touchdown (7 points)
+2) Score a touchdown (7 points) and then field goal (3 points)
+
+
+Input: 21
+Output: 2
+
+Explanation: For a score of 21, the output would be 2. The 2 ways to arrive at
+this score is to:
+
+1) Score 7 field goals (7 * 3 points)
+2) Score 3 touchdowns (3 * 7 points)
+
+Input: 24
+Output: 5
+
+1) 8  field goals (8 * 3)
+2) 3 TDs and 1 FG (3*7 + 3)
+3) 2 TDs, 1FG, 1 TD (2*7 + 3 + 7)
+etc.
+
+Constraint:
+
+0 <= input_score <= 90
+
+Diagram:
+
+answer: 0
+
+							  0
+           +7		   +3
+          7				   3
+        +7 +3      +7  +3
+      14     10     10    6
+    +7 +3   +7 +3
+   21  17   17 13
++7 +3 +7 +3    
+28 24
+x  1,x
+
+Runtime: O(2^31) ~ 2 * 2 * 10^9
+Space: ~31 stack frames
+
+Pseudocode:
+
+def football_scoring_permutations(target_score):
+	
+  initialize answer to 0
+  
+  def helper(score)
+  	
+  	if score is target_score
+    	add 1 to answer
+      return
+    if score > target_score
+    	return
+    
+    helper(score+7)
+    helper(score+3)
+      
+  helper(0)
+  
+  return answer
+
+Second solution:
+
+												24
+           -7													-3
+          17		                     21
+    -7					-3							-7					-3
+    10					14							14					18
+
+
+def football_scoring_permutations2(score):
+
+	if score is 0
+  	return 1
+  if score < 0
+  	return 0
+  
+  field_goal_ways = football_scoring_permutations(score-3)
+  touchdown_ways = football_scoring_permutations(score-7)
+  return field_goal_ways + touchdown_ways
+  
+  
+def football_scoring_permutations3(input_score):
+
+	define cache as array[0...90] initialized with -1
+  
+  def helper(score):
+
+    if score is 0
+      return 1
+    if score < 0
+      return 0
+
+		if cache[score] is -1
+      field_goal_ways = helper(score-3)
+      touchdown_ways = helper(score-7)
+      store field_goal_ways + touchdown_ways in cache[score]
+		return cache[store]
+    
+	return helper(input_score)
+  
+  
+
+Problem 2
+
+Given a string str of lowercase alphabetical characters, return the set of all 
+variations of those characters in upper AND lowercase.
+
+Input: str (String)
+Output: [Str] (Array of Strings)
+
+
+Example
+Input: "abc"
+Output: ["ABC", "ABc", "AbC", "aBC", "Abc", "aBc", "abC", "abc"]
+
+Example:
+Input: ""
+Output: [""]
+
+Constraints
+Time Complexity: O(2^N)
+Space Complexity: O(2^N)
+
+The order of the strings in the final result does not matter.
+
+In the basic solution, all the input characters will be lowercase letters.
+
+2. Diagramming
+
+																				abc,0
+                                    
+                       abc,1													Abc,1
+                          
+               abc,2							aBc						Abc								ABc
+                
+            abc		abC			aBc				aBC		Abc			AbC					ABc			ABC
+            
+  
+3. Pseudocode
+
+def capitals(in_str)
+	
+  create "answer" that is initially an empty list
+  
+  def helper(str, index)
+  
+  	if index is beyond the end of str
+    	append copy of str to answer
+      return
+    
+    helper(str, index+1)
+    set str to have letter at index capitalized
+  	helper(str, index+1)
+    set str to have letter at index lower cased
+  
+  convert in_str to a mutable string
+  helper(in_str, 0)
+  
+  return answer
+  
+  
+answer: ["abc", "abC"]
+
+helper("abc", 0)
+	helper("abc", 1)
+  	helper("abc", 2)
+    	helper("abc", 3)
+      str: abC
+      helper("abC", 3)
+      str: abc
+    str: aBc
+    helper("aBc", 2)
+    	...
+    str: abc
+      
